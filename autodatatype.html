@@ -13083,31 +13083,15 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[52]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Importing file</span>
-
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
-<span class="n">url</span><span class="o">=</span> <span class="s2">&quot;https://archive.ics.uci.edu/ml/machine-learning-databases/autos/imports-85.data&quot;</span>
+<span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;carsinfo.csv&#39;</span><span class="p">)</span>
 
-
-<span class="n">df</span><span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">header</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span>
-
-<span class="c1"># Adding header to data</span>
-
-<span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="s2">&quot;symboling&quot;</span><span class="p">,</span> <span class="s2">&quot;normalized_losses&quot;</span><span class="p">,</span> <span class="s2">&quot;make&quot;</span><span class="p">,</span> <span class="s2">&quot;fuel-type&quot;</span><span class="p">,</span> <span class="s2">&quot;aspiration&quot;</span><span class="p">,</span> <span class="s2">&quot;num_of_doors&quot;</span><span class="p">,</span> <span class="s2">&quot;body_style&quot;</span><span class="p">,</span><span class="s2">&quot;drive_wheels&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;engine_location&quot;</span><span class="p">,</span> <span class="s2">&quot;wheel_base&quot;</span><span class="p">,</span> <span class="s2">&quot;length&quot;</span><span class="p">,</span> <span class="s2">&quot;width&quot;</span><span class="p">,</span> <span class="s2">&quot;height&quot;</span><span class="p">,</span> <span class="s2">&quot;curb_weight&quot;</span><span class="p">,</span> <span class="s2">&quot;engine_type&quot;</span><span class="p">,</span> <span class="s2">&quot;num_of_cylinders&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;engine_size&quot;</span><span class="p">,</span> <span class="s2">&quot;fuel_system&quot;</span><span class="p">,</span>  <span class="s2">&quot;bore&quot;</span><span class="p">,</span>  <span class="s2">&quot;stroke&quot;</span><span class="p">,</span> <span class="s2">&quot;compression_ratio&quot;</span><span class="p">,</span> <span class="s2">&quot;horsepower&quot;</span><span class="p">,</span>  <span class="s2">&quot;peak_rpm&quot;</span><span class="p">,</span>  <span class="s2">&quot;city_mpg&quot;</span><span class="p">,</span>
-           <span class="s2">&quot;highway_mpg&quot;</span><span class="p">,</span> <span class="s2">&quot;price&quot;</span> <span class="p">]</span>
-           
-<span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">headers</span> 
-
-<span class="c1"># Returning first 5 rows</span>
-
-<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span> 
 </pre></div>
 
     </div>
@@ -13120,7 +13104,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[52]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13146,7 +13130,7 @@ div#notebook {
       <th>symboling</th>
       <th>normalized_losses</th>
       <th>make</th>
-      <th>fuel-type</th>
+      <th>fuel_type</th>
       <th>aspiration</th>
       <th>num_of_doors</th>
       <th>body_style</th>
@@ -13359,6 +13343,109 @@ price                 object
 dtype: object</pre>
 </div>
 
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Result-:-Following-columns-should-be-Numeric-not-object">Result : Following columns should be Numeric not object<a class="anchor-link" href="#Result-:-Following-columns-should-be-Numeric-not-object">&#182;</a></h1>
+<pre><code>normalized_losses     object
+
+bore                  object
+
+stroke                object
+
+horsepower            object
+
+peak_rpm              object
+
+price                 object</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="key-point:">key point:<a class="anchor-link" href="#key-point:">&#182;</a></h1>
+<pre><code>- Before converting data types, we should deal with missing values, otherwise
+
+- You will see error "ValueError: could not convert string to float: '?'"
+
+- Check first three rows of "normalized_losses" to see ? in dataset</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;normalized_losses&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
+<span class="ansi-green-fg">&lt;ipython-input-12-c32c4d90ac0c&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">----&gt; 1</span><span class="ansi-red-fg"> </span>df<span class="ansi-blue-fg">[</span><span class="ansi-blue-fg">&#34;price&#34;</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">.</span>astype<span class="ansi-blue-fg">(</span>float<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/generic.py</span> in <span class="ansi-cyan-fg">astype</span><span class="ansi-blue-fg">(self, dtype, copy, errors)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5696</span>         <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">   5697</span>             <span class="ansi-red-fg"># else, only a single dtype is given</span>
+<span class="ansi-green-fg">-&gt; 5698</span><span class="ansi-red-fg">             </span>new_data <span class="ansi-blue-fg">=</span> self<span class="ansi-blue-fg">.</span>_data<span class="ansi-blue-fg">.</span>astype<span class="ansi-blue-fg">(</span>dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">,</span> errors<span class="ansi-blue-fg">=</span>errors<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5699</span>             <span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>_constructor<span class="ansi-blue-fg">(</span>new_data<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">.</span>__finalize__<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">   5700</span> 
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/internals/managers.py</span> in <span class="ansi-cyan-fg">astype</span><span class="ansi-blue-fg">(self, dtype, copy, errors)</span>
+<span class="ansi-green-intense-fg ansi-bold">    580</span> 
+<span class="ansi-green-intense-fg ansi-bold">    581</span>     <span class="ansi-green-fg">def</span> astype<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">:</span> bool <span class="ansi-blue-fg">=</span> <span class="ansi-green-fg">False</span><span class="ansi-blue-fg">,</span> errors<span class="ansi-blue-fg">:</span> str <span class="ansi-blue-fg">=</span> <span class="ansi-blue-fg">&#34;raise&#34;</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 582</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> self<span class="ansi-blue-fg">.</span>apply<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">&#34;astype&#34;</span><span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">=</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span>copy<span class="ansi-blue-fg">,</span> errors<span class="ansi-blue-fg">=</span>errors<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    583</span> 
+<span class="ansi-green-intense-fg ansi-bold">    584</span>     <span class="ansi-green-fg">def</span> convert<span class="ansi-blue-fg">(</span>self<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/internals/managers.py</span> in <span class="ansi-cyan-fg">apply</span><span class="ansi-blue-fg">(self, f, filter, **kwargs)</span>
+<span class="ansi-green-intense-fg ansi-bold">    440</span>                 applied <span class="ansi-blue-fg">=</span> b<span class="ansi-blue-fg">.</span>apply<span class="ansi-blue-fg">(</span>f<span class="ansi-blue-fg">,</span> <span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    441</span>             <span class="ansi-green-fg">else</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 442</span><span class="ansi-red-fg">                 </span>applied <span class="ansi-blue-fg">=</span> getattr<span class="ansi-blue-fg">(</span>b<span class="ansi-blue-fg">,</span> f<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">**</span>kwargs<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    443</span>             result_blocks <span class="ansi-blue-fg">=</span> _extend_blocks<span class="ansi-blue-fg">(</span>applied<span class="ansi-blue-fg">,</span> result_blocks<span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    444</span> 
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/internals/blocks.py</span> in <span class="ansi-cyan-fg">astype</span><span class="ansi-blue-fg">(self, dtype, copy, errors)</span>
+<span class="ansi-green-intense-fg ansi-bold">    623</span>             vals1d <span class="ansi-blue-fg">=</span> values<span class="ansi-blue-fg">.</span>ravel<span class="ansi-blue-fg">(</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    624</span>             <span class="ansi-green-fg">try</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-fg">--&gt; 625</span><span class="ansi-red-fg">                 </span>values <span class="ansi-blue-fg">=</span> astype_nansafe<span class="ansi-blue-fg">(</span>vals1d<span class="ansi-blue-fg">,</span> dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    626</span>             <span class="ansi-green-fg">except</span> <span class="ansi-blue-fg">(</span>ValueError<span class="ansi-blue-fg">,</span> TypeError<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    627</span>                 <span class="ansi-red-fg"># e.g. astype_nansafe can fail on object-dtype of strings</span>
+
+<span class="ansi-green-fg">~/anaconda3/lib/python3.7/site-packages/pandas/core/dtypes/cast.py</span> in <span class="ansi-cyan-fg">astype_nansafe</span><span class="ansi-blue-fg">(arr, dtype, copy, skipna)</span>
+<span class="ansi-green-intense-fg ansi-bold">    895</span>     <span class="ansi-green-fg">if</span> copy <span class="ansi-green-fg">or</span> is_object_dtype<span class="ansi-blue-fg">(</span>arr<span class="ansi-blue-fg">)</span> <span class="ansi-green-fg">or</span> is_object_dtype<span class="ansi-blue-fg">(</span>dtype<span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">:</span>
+<span class="ansi-green-intense-fg ansi-bold">    896</span>         <span class="ansi-red-fg"># Explicit copy, or required since NumPy can&#39;t view from / to object.</span>
+<span class="ansi-green-fg">--&gt; 897</span><span class="ansi-red-fg">         </span><span class="ansi-green-fg">return</span> arr<span class="ansi-blue-fg">.</span>astype<span class="ansi-blue-fg">(</span>dtype<span class="ansi-blue-fg">,</span> copy<span class="ansi-blue-fg">=</span><span class="ansi-green-fg">True</span><span class="ansi-blue-fg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">    898</span> 
+<span class="ansi-green-intense-fg ansi-bold">    899</span>     <span class="ansi-green-fg">return</span> arr<span class="ansi-blue-fg">.</span>view<span class="ansi-blue-fg">(</span>dtype<span class="ansi-blue-fg">)</span>
+
+<span class="ansi-red-fg">ValueError</span>: could not convert string to float: &#39;?&#39;</pre>
+</div>
 </div>
 
 </div>
