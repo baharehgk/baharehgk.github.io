@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>dictionaries</title>
+<title>tuples</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,51 +13077,18 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionaries-{}">Dictionaries {}<a class="anchor-link" href="#Dictionaries-{}">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Tuples()">Tuples()<a class="anchor-link" href="#Tuples()">&#182;</a></h1>
+<pre><code>-Tuples = ( x, y, (m,n), k)
 
-<pre><code>- Dictionaries are created by curly brackets
+-Tuples are immutable -&gt; tuple cannot be changed
 
-- Dictionaries have keys and values
+-Tuples can contain string, integer, float and even tuples (called nesting)
 
-- Dictionaries keys are like indexes in lists and tuples, but they do not have to be integers
+-Type of the variable is Tuple
 
-- Dictionaries keys are immutable and unique
+-Index of first element (x) of my_tuple is 0
 
-- Dictionaries values are like elements in lists and tuples
-
-- Dictionaries values can be mutable and duplicates
-
-- DIctionaries can also contain many dictionaries -&gt; called nested dictionaries.
-
-- Dictionary Example: Author as a key - Number of books as a value
-
-
-
-- my_dict = { "William Shakespeare": 42 , "Agatha Christie": 85 , "Barbara Cartland": 723,
-
-              "Danielle Steel": 179 , "Harold Robbins": 23 }
-
-- your_dict = {"Ginger &amp; Rosa": 2013 , "Enemy" : 2014, "Obvious Child": 2014, "Son of a Gun":2015}   
-
-- all_dict = {
-
-              'your_dict': {'Ginger &amp; Rosa': 2013,
-              'Enemy': 2014,
-              'Obvious Child': 2014,
-              'Son of a Gun': 2015},
-
-             'my_dict': {'Ginger &amp; Rosa': 2013,
-              'Enemy': 2014,
-              'Obvious Child': 2014,
-              'Son of a Gun': 2015} 
-
-             }</code></pre>
+-Index of last element (k) of my_tuple is -1</code></pre>
 
 </div>
 </div>
@@ -13129,480 +13096,21 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Nesting-Dictionaries">Nesting Dictionaries<a class="anchor-link" href="#Nesting-Dictionaries">&#182;</a></h1>
+<h2 id="Tuple-with-one-element">Tuple with one element<a class="anchor-link" href="#Tuple-with-one-element">&#182;</a></h2><p>It is essential to add a comma after the item, so it will be considered as a tuple</p>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-<span class="n">your_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Ginger &amp; Rosa&quot;</span><span class="p">:</span> <span class="mi">2013</span> <span class="p">,</span> <span class="s2">&quot;Enemy&quot;</span> <span class="p">:</span> <span class="mi">2014</span><span class="p">,</span> <span class="s2">&quot;Obvious Child&quot;</span><span class="p">:</span> <span class="mi">2014</span><span class="p">,</span> <span class="s2">&quot;Son of a Gun&quot;</span><span class="p">:</span><span class="mi">2015</span><span class="p">}</span>   
-           
-
-<span class="n">all_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;your_dict&quot;</span> <span class="p">:</span> <span class="n">your_dict</span><span class="p">,</span>
-    
-             <span class="s2">&quot;my_dict&quot;</span> <span class="p">:</span> <span class="n">your_dict</span> <span class="p">}</span>
-        
-
-<span class="n">all_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[36]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;your_dict&#39;: {&#39;Ginger &amp; Rosa&#39;: 2013,
-  &#39;Enemy&#39;: 2014,
-  &#39;Obvious Child&#39;: 2014,
-  &#39;Son of a Gun&#39;: 2015},
- &#39;my_dict&#39;: {&#39;Ginger &amp; Rosa&#39;: 2013,
-  &#39;Enemy&#39;: 2014,
-  &#39;Obvious Child&#39;: 2014,
-  &#39;Son of a Gun&#39;: 2015}}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Returning-keys">Returning keys<a class="anchor-link" href="#Returning-keys">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[40]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-<span class="n">my_dict</span><span class="o">.</span><span class="n">keys</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[40]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>dict_keys([&#39;William Shakespeare&#39;, &#39;Agatha Christie&#39;, &#39;Barbara Cartland&#39;, &#39;Danielle Steel&#39;, &#39;Harold Robbins&#39;])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Returning-Values">Returning Values<a class="anchor-link" href="#Returning-Values">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[39]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-<span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[39]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>dict_values([42, 85, 723, 179, 23])</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Returning-Values-using-keys">Returning Values using keys<a class="anchor-link" href="#Returning-Values-using-keys">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[8]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-<span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;Harold Robbins&quot;</span><span class="p">]</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[8]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>23</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Adding-values-to-Dictionaries">Adding values to Dictionaries<a class="anchor-link" href="#Adding-values-to-Dictionaries">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;Georges Simenon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">570</span>
-
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;William Shakespeare&#39;: 42,
- &#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23,
- &#39;Georges Simenon&#39;: 570}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Removing-Values-from-Dictionaries">Removing Values from Dictionaries<a class="anchor-link" href="#Removing-Values-from-Dictionaries">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Removing-values-with-Specified-keys-(first-way)">Removing values with Specified keys (first way)<a class="anchor-link" href="#Removing-values-with-Specified-keys-(first-way)">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[26]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="n">my_dict</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s2">&quot;William Shakespeare&quot;</span><span class="p">)</span>
-
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[26]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Removing-values-with-Specified-keys-(second-way)">Removing values with Specified keys (second way)<a class="anchor-link" href="#Removing-values-with-Specified-keys-(second-way)">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">del</span> <span class="n">my_dict</span><span class="p">[</span><span class="s2">&quot;William Shakespeare&quot;</span><span class="p">]</span>
-
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[29]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Removing-last-value-of-Dictionaries">Removing last value of Dictionaries<a class="anchor-link" href="#Removing-last-value-of-Dictionaries">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="n">my_dict</span><span class="o">.</span><span class="n">popitem</span><span class="p">()</span>
-
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[28]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;William Shakespeare&#39;: 42,
- &#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Changeing-Values-in-Dictionaries">Changeing Values in Dictionaries<a class="anchor-link" href="#Changeing-Values-in-Dictionaries">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-<span class="n">my_dict</span><span class="p">[</span><span class="s1">&#39;Georges Simenon&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">2</span>
-
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[7]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{&#39;William Shakespeare&#39;: 42,
- &#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23,
- &#39;Georges Simenon&#39;: 2}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionaries-and-Loop">Dictionaries and Loop<a class="anchor-link" href="#Dictionaries-and-Loop">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Returning-Keys">Returning Keys<a class="anchor-link" href="#Returning-Keys">&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">,)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">))</span>
+
+<span class="n">my_variable</span> <span class="o">=</span>  <span class="p">(</span><span class="s2">&quot;Hello&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">my_variable</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -13619,11 +13127,8 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>William Shakespeare
-Agatha Christie
-Barbara Cartland
-Danielle Steel
-Harold Robbins
+<pre>&lt;class &#39;tuple&#39;&gt;
+&lt;class &#39;str&#39;&gt;
 </pre>
 </div>
 </div>
@@ -13635,118 +13140,33 @@ Harold Robbins
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Returning-Values-(First-Way)">Returning Values (First Way)<a class="anchor-link" href="#Returning-Values-(First-Way)">&#182;</a></h3>
+<h2 id="Immutable">Immutable<a class="anchor-link" href="#Immutable">&#182;</a></h2>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="n">my_dict</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>42
-85
-723
-179
-23
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Returning-Values-(Second-Way)">Returning Values (Second Way)<a class="anchor-link" href="#Returning-Values-(Second-Way)">&#182;</a></h3>
+<h3 id="--You-can-not-add-an-Item-to-a-tuple">- You can not add an Item to a tuple<a class="anchor-link" href="#--You-can-not-add-an-Item-to-a-tuple">&#182;</a></h3><h3 id="--You-can-not-remove-an-Item-from-a-tuple">- You can not remove an Item from a tuple<a class="anchor-link" href="#--You-can-not-remove-an-Item-from-a-tuple">&#182;</a></h3>
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>42
-85
-723
-179
-23
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Returning-Keys-and-Values">Returning Keys and Values<a class="anchor-link" href="#Returning-Keys-and-Values">&#182;</a></h3>
+<h2 id="Showing-an-element-of-a-Tuple">Showing an element of a Tuple<a class="anchor-link" href="#Showing-an-element-of-a-Tuple">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing first element of the tuple (index of first element is always 0)</span>
 
-
-<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-  <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
 </pre></div>
 
     </div>
@@ -13759,151 +13179,13 @@ Harold Robbins
 
 <div class="output_area">
 
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>William Shakespeare 42
-Agatha Christie 85
-Barbara Cartland 723
-Danielle Steel 179
-Harold Robbins 23
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionaries-and-if-Statements">Dictionaries and if Statements<a class="anchor-link" href="#Dictionaries-and-if-Statements">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[21]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">if</span> <span class="s2">&quot;William Shakespeare&quot;</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Yes
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[22]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">if</span> <span class="s2">&quot;William&quot;</span> <span class="ow">in</span> <span class="n">my_dict</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes&quot;</span><span class="p">)</span>
-<span class="k">else</span><span class="p">:</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No&quot;</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>No
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Copying-Dictionaries-(first-way)">Copying Dictionaries (first way)<a class="anchor-link" href="#Copying-Dictionaries-(first-way)">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[33]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="n">your_dict</span> <span class="o">=</span> <span class="n">my_dict</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
-
-<span class="n">your_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[33]:</div>
+    <div class="prompt output_prompt">Out[85]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;William Shakespeare&#39;: 42,
- &#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23}</pre>
+<pre>10</pre>
 </div>
 
 </div>
@@ -13911,27 +13193,16 @@ Harold Robbins 23
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Copying-Dictionaries-(second-way)">Copying Dictionaries (second way)<a class="anchor-link" href="#Copying-Dictionaries-(second-way)">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing second element of the tuple</span>
 
-
-<span class="n">your_dict</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
-
-<span class="n">your_dict</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> 
 </pre></div>
 
     </div>
@@ -13944,17 +13215,13 @@ Harold Robbins 23
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[34]:</div>
+    <div class="prompt output_prompt">Out[86]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>{&#39;William Shakespeare&#39;: 42,
- &#39;Agatha Christie&#39;: 85,
- &#39;Barbara Cartland&#39;: 723,
- &#39;Danielle Steel&#39;: 179,
- &#39;Harold Robbins&#39;: 23}</pre>
+<pre>&#39;hello&#39;</pre>
 </div>
 
 </div>
@@ -13962,24 +13229,16 @@ Harold Robbins 23
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dictionary-Length">Dictionary Length<a class="anchor-link" href="#Dictionary-Length">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing third element of the tuple</span>
 
-<span class="nb">len</span><span class="p">(</span><span class="n">my_dict</span><span class="p">)</span>
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> 
 </pre></div>
 
     </div>
@@ -13992,7 +13251,478 @@ Harold Robbins 23
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[23]:</div>
+    <div class="prompt output_prompt">Out[87]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1.5</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing last element of the tuple (index of last element is always -1) (here the index is either 3 or -1)</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[88]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&#39;X is&#39;, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing last element of the tuple (index of last element is always -1) (here the index is either 3 or -1)</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[89]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(&#39;X is&#39;, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If the last element is (&#39;X is&#39;, 3) , how we can show first element of this tuple?</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[90]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;X is&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># If the last element is (&#39;X is&#39;, 3) , how we can show second element of this tuple?</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">10</span> <span class="p">,</span> <span class="s2">&quot;hello&quot;</span><span class="p">,</span> <span class="mf">1.50</span> <span class="p">,</span> <span class="p">(</span><span class="s2">&quot;X is&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">))</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> 
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[91]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Range-of-Indexes-(-Showing-multiple-elements)">Range of Indexes ( Showing multiple elements)<a class="anchor-link" href="#Range-of-Indexes-(-Showing-multiple-elements)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># showing first element with index 0 but not second one with index 1 </span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[92]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1,)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># showing first and second elements but not third one with index 2 </span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[93]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1, 3)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># showing last two elements wih index 3 &amp; index 4</span>
+
+<span class="n">my_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[94]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(7, 9)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Concatenating-Tuples-(Combining-Tuples)">Concatenating Tuples (Combining Tuples)<a class="anchor-link" href="#Concatenating-Tuples-(Combining-Tuples)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[95]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">2</span> <span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+
+<span class="n">new_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span> <span class="o">+</span> <span class="p">(</span><span class="mf">0.5</span> <span class="p">,</span> <span class="s2">&quot;Added&quot;</span><span class="p">,</span> <span class="mi">150</span> <span class="p">,)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">new_tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(2, &#39;bye&#39;, 100, 0.5, &#39;Added&#39;, 150)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Count()-Method">Count() Method<a class="anchor-link" href="#Count()-Method">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#the number of times &quot;hi&quot; appears in my_tuple</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+
+<span class="n">check_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">check_tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Index()-Method">Index() Method<a class="anchor-link" href="#Index()-Method">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Return index of the first occurrence of &quot;hi&quot;</span>
+
+<span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">,</span> <span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+
+<span class="n">check_tuple</span> <span class="o">=</span> <span class="n">my_tuple</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="s2">&quot;hi&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">check_tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Type-of-Tuples">Type of Tuples<a class="anchor-link" href="#Type-of-Tuples">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">2</span> <span class="p">,</span> <span class="s2">&quot;bye&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="nb">type</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[98]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>tuple</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lenghth-of-Tuples-:-len()">Lenghth of Tuples : len()<a class="anchor-link" href="#Lenghth-of-Tuples-:-len()">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">9</span><span class="p">)</span>
+
+<span class="nb">len</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[99]:</div>
 
 
 
@@ -14010,73 +13740,20 @@ Harold Robbins 23
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Emtying-Dictionaries">Emtying Dictionaries<a class="anchor-link" href="#Emtying-Dictionaries">&#182;</a></h1>
+<h2 id="Sorting-Tuples">Sorting Tuples<a class="anchor-link" href="#Sorting-Tuples">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
 
-<span class="n">my_dict</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
+<span class="n">sorted_tuple</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">my_tuple</span><span class="p">)</span>
 
-<span class="n">my_dict</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[32]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>{}</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Deleting-Dictionaries">Deleting Dictionaries<a class="anchor-link" href="#Deleting-Dictionaries">&#182;</a></h1>
-<pre><code>- When you delete the dictionary -&gt; your dictionary no longer exist
-- If you call your dictionary -&gt; it causes an error 
-- Error -&gt; NameError: name 'my_dict' is not defined</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[30]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dict</span> <span class="o">=</span> <span class="p">{</span> <span class="s2">&quot;William Shakespeare&quot;</span><span class="p">:</span> <span class="mi">42</span> <span class="p">,</span> <span class="s2">&quot;Agatha Christie&quot;</span><span class="p">:</span> <span class="mi">85</span> <span class="p">,</span> <span class="s2">&quot;Barbara Cartland&quot;</span><span class="p">:</span> <span class="mi">723</span><span class="p">,</span>
-                
-                  <span class="s2">&quot;Danielle Steel&quot;</span><span class="p">:</span> <span class="mi">179</span> <span class="p">,</span> <span class="s2">&quot;Harold Robbins&quot;</span><span class="p">:</span> <span class="mi">23</span> <span class="p">}</span>
-
-
-<span class="k">del</span> <span class="n">my_dict</span>
-
-<span class="n">my_dict</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sorted_tuple</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -14092,16 +13769,98 @@ Harold Robbins 23
     <div class="prompt"></div>
 
 
-<div class="output_subarea output_text output_error">
-<pre>
-<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
-<span class="ansi-red-fg">NameError</span>                                 Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-30-6942cb3aad07&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
-<span class="ansi-green-intense-fg ansi-bold">      6</span> <span class="ansi-green-fg">del</span> my_dict
-<span class="ansi-green-intense-fg ansi-bold">      7</span> 
-<span class="ansi-green-fg">----&gt; 8</span><span class="ansi-red-fg"> </span>my_dict
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[3, 55, 70, 99, 100]
+</pre>
+</div>
+</div>
 
-<span class="ansi-red-fg">NameError</span>: name &#39;my_dict&#39; is not defined</pre>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tuples-and-Loop">Tuples and Loop<a class="anchor-link" href="#Tuples-and-Loop">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">my_tuple</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>100
+3
+55
+70
+99
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Tuples-and-if-Statements">Tuples and if Statements<a class="anchor-link" href="#Tuples-and-if-Statements">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[74]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_tuple</span> <span class="o">=</span> <span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">99</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="s2">&quot;hello&quot;</span> <span class="ow">in</span> <span class="n">my_tuple</span><span class="p">:</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Yes, You won!&quot;</span><span class="p">)</span>
+
+<span class="k">else</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;No, You lost&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>No, You lost
+</pre>
 </div>
 </div>
 
