@@ -13078,12 +13078,22 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Case-Study-(autos)-:-Checking-Missing-Values">Case Study (autos) : Checking Missing Values<a class="anchor-link" href="#Case-Study-(autos)-:-Checking-Missing-Values">&#182;</a></h1>
+<pre><code>Three ways to check missing values:
+
+- DataFrame.isnull().sum()
+
+- DataFrame.isnull() 
+
+- DataFrame.notnull() 
+
+- DataFrame.columns[df.isnull().any()]</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[18]:</div>
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13107,28 +13117,85 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Checking-Missing-values-or-null-values-(nan)">Checking Missing values or null values (nan)<a class="anchor-link" href="#Checking-Missing-values-or-null-values-(nan)">&#182;</a></h1>
-<pre><code>Three ways to check missing values:
+<h2 id="1.-Checking-Missing-Values-using">1. Checking Missing Values using<a class="anchor-link" href="#1.-Checking-Missing-Values-using">&#182;</a></h2>
+<pre><code>DataFrame.isnull().sum()
 
-- df.isnull() 
+- You can sort values by adding -&gt; .sort_values(ascending=False)</code></pre>
 
-- df.notnull() 
-
-- df.columns[df.isnull().any()]</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="First-Way">First Way<a class="anchor-link" href="#First-Way">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[12]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[12]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>normalized_losses    41
+price                 4
+stroke                4
+bore                  4
+peak_rpm              2
+horsepower            2
+length                0
+make                  0
+fuel_type             0
+aspiration            0
+num_of_doors          0
+body_style            0
+drive_wheels          0
+engine_location       0
+wheel_base            0
+height                0
+width                 0
+highway_mpg           0
+curb_weight           0
+engine_type           0
+num_of_cylinders      0
+engine_size           0
+fuel_system           0
+compression_ratio     0
+city_mpg              0
+symboling             0
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="2.-Checking-Missing-Values-using">2. Checking Missing Values using<a class="anchor-link" href="#2.-Checking-Missing-Values-using">&#182;</a></h2>
+<pre><code>DataFrame.isnull() </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing first 5 rows by adding -&gt; [:5]</span>
@@ -13146,7 +13213,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[3]:</div>
 
 
 
@@ -13328,13 +13395,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Second-Way">Second Way<a class="anchor-link" href="#Second-Way">&#182;</a></h2>
+<h2 id="3.-Checking-Missing-Values-using">3. Checking Missing Values using<a class="anchor-link" href="#3.-Checking-Missing-Values-using">&#182;</a></h2>
+<pre><code>DataFrame.notnull() </code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[20]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Showing first 5 rows by adding -&gt; [:5]</span>
@@ -13352,7 +13421,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[20]:</div>
+    <div class="prompt output_prompt">Out[5]:</div>
 
 
 
@@ -13534,7 +13603,11 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Third-Way:-Shows-columns-having-missing-values">Third Way: Shows columns having missing values<a class="anchor-link" href="#Third-Way:-Shows-columns-having-missing-values">&#182;</a></h2>
+<h2 id="4.-Checking-Missing-Values-using">4. Checking Missing Values using<a class="anchor-link" href="#4.-Checking-Missing-Values-using">&#182;</a></h2>
+<pre><code>DataFrame.columns[df.isnull().any()]
+
+- Showing names of columns having missing values</code></pre>
+
 </div>
 </div>
 </div>
@@ -13578,13 +13651,15 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="OR">OR<a class="anchor-link" href="#OR">&#182;</a></h1>
+<h2 id="5.-Checking-Missing-Values-using">5. Checking Missing Values using<a class="anchor-link" href="#5.-Checking-Missing-Values-using">&#182;</a></h2>
+<pre><code>DataFrame.loc[:,df.isnull().any()]</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">any</span><span class="p">()][:</span><span class="mi">6</span><span class="p">]</span>
@@ -13600,7 +13675,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[24]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
