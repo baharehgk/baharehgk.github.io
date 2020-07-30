@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <logo>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {
+  font-family: "Lato", sans-serif;
+}
+
+/* Fixed sidenav, full height */
+.sidenav {
+  height: 100%;
+  width: 400px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #3AAFA9;
+  overflow-x: hidden;
+  padding-top: 30px;
+}
+
+/* Style the sidenav links and the dropdown button */
+.sidenav a, .dropdown-btn {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 22px;
+  color: #2B7A78;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+
+/* On mouse-over */
+.sidenav a:hover, .dropdown-btn:hover {
+  color: #DEF2F1;
+}
+
+/* Main content */
+.main {
+  margin-left: 200px; /* Same as the width of the sidenav */
+  font-size: 30px; /* Increased text to enable scrolling */
+  padding: 0px 80px;
+}
+
+/* Add an active class to the active dropdown button */
+.active {
+  background-color:pink;
+  color: white;
+}
+
+/* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+  font-size: 18px;
+}
+
+/* Optional: Style the caret down icon */
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+
+/* Some media queries for responsiveness */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 22px;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <ul>
+    <li><a href="#">Navigation</a></li>
+    <li><a href="#">Menu</a></li>
+    <li><a href="#">Links</a></li>
+  </ul>
+</nav>
+<div class="sidenav">
+   <div class="dropdown-container">
+    <a href="">Ubuntu version</a>
+    <a href=""></a>
+    <a href="">Ubuntu doesn't open external USB Hard Disk</a>
+  </div>
+  <button class="dropdown-btn">Ubuntu 19.10
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/ubuntuversion.html">Ubuntu version</a>
+    <a href="https://DataScienceSchools.github.io/rar.html">Extract RAR File</a>
+    <a href="https://DataScienceSchools.github.io/hard.html">External USB Hard Disk</a>
+  </div>
+  <button class="dropdown-btn">Python3 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/install.html">Python Installation </a>
+    <a href="https://DataScienceSchools.github.io/print.html">Python print</a>
+    <a href="https://DataScienceSchools.github.io/comment.html">Python Comments</a>
+    <a href="https://DataScienceSchools.github.io/arithmetic.html">Python Arithmetic Operators</a>
+    <a href="https://DataScienceSchools.github.io/variable.html">Python Variables</a>
+    <a href="https://DataScienceSchools.github.io/tmethod.html">Python Datatypes</a>
+    <a href="https://DataScienceSchools.github.io/tuples.html">Python Tuples</a>
+    <a href="https://DataScienceSchools.github.io/lists.html">Python Lists</a>
+    <a href="https://DataScienceSchools.github.io/dictionaries.html">Python Dictionaries</a>
+    <a href="https://DataScienceSchools.github.io/ulmethod.html">Python String Methods</a>
+    <a href="https://DataScienceSchools.github.io/rmethod.html">Python Replace Method</a>
+    <a href="https://DataScienceSchools.github.io/function.html">Python Functions</a>
+       <a href="https://DataScienceSchools.github.io/write.html">Python File Write</a>
+    <a href="https://DataScienceSchools.github.io/append.html">Python File Append</a>
+  </div>
+
+
+   <button class="dropdown-btn">Anaconda
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/installanaconda.html">Install anaconda</a>
+    <a href="https://DataScienceSchools.github.io/uninstallanaconda.html">Uninstall anaconda</a>
+    <a href="https://DataScienceSchools.github.io/condanotfound.html">conda not found</a>
+  </div>
+  <button class="dropdown-btn">Jupyter Notebook 
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/openjn.html">Jupyter Open Notebook</a>
+    <a href="https://DataScienceSchools.github.io/importingfile.html">Jupyter Import file</a>
+    <a href="https://DataScienceSchools.github.io/html2ipynb.html">Jupyter HTML to ipynb</a>
+
+  </div>
+  <button class="dropdown-btn">NumPy
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/numpy.html">Install NumPy</a>
+    <a href="https://DataScienceSchools.github.io/nversion.html">NumPy Version</a>
+    <a href="https://DataScienceSchools.github.io/array.html">NumPy Arrays</a>
+    <a href="https://DataScienceSchools.github.io/indexn.html">Index of NumPy Array</a>
+  </div>
+ <button class="dropdown-btn">Pandas
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/Pandas">Series and DataFrame</a>
+    <a href="https://DataScienceSchools.github.io/combining.html">Combining DataFrames</a>
+    <a href="https://DataScienceSchools.github.io/drop.html">Deleting rows and columns with missing values</a>
+    <a href="https://DataScienceSchools.github.io/merging.html">Merging/Joining DataFrames</a>
+    <a href="https://DataScienceSchools.github.io/replace.html">Replacing values in DataFrames</a>
+    <a href="https://DataScienceSchools.github.io/map.html">Creating new columns with Mapping function</a>
+    <a href="https://DataScienceSchools.github.io/ordering.html">Ordering columns</a>
+    <a href="https://DataScienceSchools.github.io/dropping.html">Dropping rows and columns</a>
+    <a href="https://DataScienceSchools.github.io/sstatistics.html">Summary Statistics</a>
+  </div>
+
+  <button class="dropdown-btn">IBM Watson Studio
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/linkingwg.html">Linking Github to Watson Studio</a>
+  </div>
+
+   <button class="dropdown-btn">Machine Learning
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/ML_logistic_regression.html">ML Logistic Regression</a>
+   <a href="https://DataScienceSchools.github.io/ML_LR_decision_boundary.html>ML Logistic Regression Decision Boundary</a>
+   <a href="https://DataScienceSchools.github.io/ML_LR_comparing_performance.html">ML Classification Algorithms Perfomance</a>
+   <a href="https://DataScienceSchools.github.io/ML_data_normalization.html">ML Data Normalization</a>
+
+ </div>
+
+
+
+   <button class="dropdown-btn">Case Study (Autos)
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/autoimportfile.html">Autos Importing File</a>
+    <a href="https://DataScienceSchools.github.io/autoexport.html">Autos Exporting Data</a>
+    <a href="https://DataScienceSchools.github.io/autodatatype.html">Autos DataTypes</a>
+    <a href="https://DataScienceSchools.github.io/autoconverting.html">Autos Converting DataTypes</a>
+    <a href="https://DataScienceSchools.github.io/autocheckmissingvalues.html">Autos Checking Missing Values</a>
+    <a href="https://DataScienceSchools.github.io/automissingvalue.html">Autos dropping</a>
+    <a href="https://DataScienceSchools.github.io/autohandlingmissingvalue.html">Autos Handling Missing Values</a>
+    <a href="https://DataScienceSchools.github.io/autocat2numeric.html">Auto categorical to quantitative</a>
+    <a href="https://DataScienceSchools.github.io/autosummarystatistics.html">Auto Summary Statistics</a>
+   </div>
+
+  <button class="dropdown-btn"> Case Study (Human Resources Retention)
+  <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/HR_importing&merging.html"> HR Importing & Merging DataFrames </a>
+    <a href="https://DataScienceSchools.github.io/HR_missingvalues.html">HR Handling Missing Values</a>
+    <a href="https://DataScienceSchools.github.io/HR_pivot&groupby.html">HR Pivot & GroupBy</a>
+    <a href="https://DataScienceSchools.github.io/empty.html">Empty</a>
+    <a href="https://DataScienceSchools.github.io/empty.html">Empty</a>
+    <a href="https://DataScienceSchools.github.io/empty.html">Empty</a>                                                          
+     <a href="https://DataScienceSchools.github.io/empty.html">Empty</a>                                                         
+   </div>                                                         
+
+
+
+  <button class="dropdown-btn">Case Study (Wine Quality)
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/wineimport.html">Wine Quality Importing Files</a>
+    <a href="https://DataScienceSchools.github.io/winesummarystatistics.html">Wine Quality Summary Statistics</a>
+    <a href="https://DataScienceSchools.github.io/wineexport.html">Wine Quality Exporting Data</a>
+    <a href="https://DataScienceSchools.github.io/winerevisename.html">Wine Quality Revising a Column Name</a> 
+    <a href="https://DataScienceSchools.github.io/winerenamecolumnname.html">Wine Quality Renaming a Column Name</a> 
+    <a href="https://DataScienceSchools.github.io/wineaddcolumn.html">Wine Quality Adding a new column</a>
+    <a href="https://DataScienceSchools.github.io/wineappendingdata.html">Wine Quality Appending Data</a>
+    <a href="https://DataScienceSchools.github.io/winemissingvalues.html">Wine Quality Checking Missing Values</a>
+    <a href="https://DataScienceSchools.github.io/wineduplicate.html">Wine Quality Checking Duplicate Values</a>
+    <a href="https://DataScienceSchools.github.io/.html">Wine Quality Hitogram</a>
+    <a href="https://DataScienceSchools.github.io/winegroupingdata.html">Wine Quality Grouping Data</a>
+    <a href="https://DataScienceSchools.github.io/winequery.html">Wine Quality Query</a>
+    <a href="https://DataScienceSchools.github.io/.html">Wine Quality</a>
+    <a href="https://DataScienceSchools.github.io/.html">Wine Quality</a
+  </div>
+
+  <button class="dropdown-btn">Case Study (Amazon)
+   <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/amazon_Data_Cleaning_Summary.html">Amazon Data Cleaning Summary</a>
+    <a href="https://DataScienceSchools.github.io/amazon_rename_column.html">Amazon Renaming Columns</a>
+    <a href="https://DataScienceSchools.github.io/amazon_reorder_column.html">Amazon Re-arranging Column</a>
+    <a href="https://DataScienceSchools.github.io/amazon_numeric_digit.html">Amazon Columns Datatype</a>
+    <a href="https://DataScienceSchools.github.io/amazon_remove_text_column.html">Amazon Removing Text</a>
+    <a href="https://DataScienceSchools.github.io/amazon_missing_value.html">Amazon Missing Data</a>
+    <a href="https://DataScienceSchools.github.io/amazon_convert_datatype.html">Amazon Converting DataTypes</a>
+    <a href="https://DataScienceSchools.github.io/amazon_replace_column_values.html">Amazon Replacing Values</a>
+    <a href="https://DataScienceSchools.github.io/amazon_convert_value.html">Amazon Uppercase & Lowercase </a>
+    <a href="https://DataScienceSchools.github.io/amazon_drop_column.html">Amazon Removing Columns</a>
+    <a href="https://DataScienceSchools.github.io/amazon_drop_row.html">Amazon Removing Rows</a>
+    <a href="https://DataScienceSchools.github.io/empty.html"></a>
+    <a href="https://DataScienceSchools.github.io/empty.html">Empty</a>
+  </div>                                                    
+
+  </div>
+
+<div class="main">
+  <h2></h2>
+  <p>t</p>
+  </div>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+
+</body>
+</html> 
+
+
+
+
+
+
