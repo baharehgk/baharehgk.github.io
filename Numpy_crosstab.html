@@ -13078,10 +13078,11 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Cross-tabulation-(or-crosstab)">Cross-tabulation (or crosstab)<a class="anchor-link" href="#Cross-tabulation-(or-crosstab)">&#182;</a></h1>
-<pre><code> - pandas.crosstab(index, columns, values=None, rownames=None, colnames=None, aggfunc=None, margins=False, dropna=True)
+<pre><code>- Crosstab -&gt; pandas.crosstab(index, columns, values=None, rownames=None, 
+                         colnames=None, aggfunc=None, margins=False, dropna=True)
 
 
-  - computes a frequency table of the factors unless an array of values and an aggregation function are passed</code></pre>
+- A frequency table of the factors unless an array of values and an aggregation function are passed</code></pre>
 
 </div>
 </div>
@@ -13095,7 +13096,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[27]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13116,7 +13117,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[27]:</div>
+    <div class="prompt output_prompt">Out[4]:</div>
 
 
 
@@ -13297,7 +13298,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
@@ -13362,7 +13363,7 @@ memory usage: 1.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;customerID&#39;</span><span class="p">,</span><span class="s1">&#39;MonthlyCharges&#39;</span><span class="p">,</span> <span class="s1">&#39;TotalCharges&#39;</span><span class="p">,</span> <span class="s1">&#39;tenure&#39;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
@@ -13380,7 +13381,7 @@ memory usage: 1.1+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[19]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13543,12 +13544,12 @@ memory usage: 1.1+ MB
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df_copy</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">Churn</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">df_copy</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">crosstab</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">pd</span><span class="o">.</span><span class="n">crosstab</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">x</span><span class="p">],</span> <span class="n">df</span><span class="o">.</span><span class="n">Churn</span><span class="p">)</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]],</span> <span class="n">keys</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
 
-<span class="n">df_crosstab</span>
+<span class="n">crosstab</span>
 </pre></div>
 
     </div>
@@ -13561,7 +13562,7 @@ memory usage: 1.1+ MB
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[29]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13820,6 +13821,348 @@ memory usage: 1.1+ MB
       <th>Mailed check</th>
       <td>1304</td>
       <td>308</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Adding-a-Percentage-Column">Adding a Percentage Column<a class="anchor-link" href="#Adding-a-Percentage-Column">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">crosstab</span><span class="p">[</span><span class="s1">&#39;Churn_Percentage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">crosstab</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">]</span><span class="o">*</span><span class="mi">100</span> <span class="o">/</span> <span class="p">(</span><span class="n">crosstab</span><span class="p">[</span><span class="s1">&#39;No&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="n">crosstab</span><span class="p">[</span><span class="s1">&#39;Yes&#39;</span><span class="p">])</span>
+
+<span class="n">crosstab</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[11]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Churn</th>
+      <th>No</th>
+      <th>Yes</th>
+      <th>Churn_Percentage</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th rowspan="2" valign="top">gender</th>
+      <th>Female</th>
+      <td>2549</td>
+      <td>939</td>
+      <td>26.920872</td>
+    </tr>
+    <tr>
+      <th>Male</th>
+      <td>2625</td>
+      <td>930</td>
+      <td>26.160338</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">SeniorCitizen</th>
+      <th>0</th>
+      <td>4508</td>
+      <td>1393</td>
+      <td>23.606168</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>666</td>
+      <td>476</td>
+      <td>41.681261</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Partner</th>
+      <th>No</th>
+      <td>2441</td>
+      <td>1200</td>
+      <td>32.957979</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>2733</td>
+      <td>669</td>
+      <td>19.664903</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">Dependents</th>
+      <th>No</th>
+      <td>3390</td>
+      <td>1543</td>
+      <td>31.279140</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1784</td>
+      <td>326</td>
+      <td>15.450237</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">PhoneService</th>
+      <th>No</th>
+      <td>512</td>
+      <td>170</td>
+      <td>24.926686</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>4662</td>
+      <td>1699</td>
+      <td>26.709637</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">MultipleLines</th>
+      <th>No</th>
+      <td>2541</td>
+      <td>849</td>
+      <td>25.044248</td>
+    </tr>
+    <tr>
+      <th>No phone service</th>
+      <td>512</td>
+      <td>170</td>
+      <td>24.926686</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>2121</td>
+      <td>850</td>
+      <td>28.609896</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">InternetService</th>
+      <th>DSL</th>
+      <td>1962</td>
+      <td>459</td>
+      <td>18.959108</td>
+    </tr>
+    <tr>
+      <th>Fiber optic</th>
+      <td>1799</td>
+      <td>1297</td>
+      <td>41.892765</td>
+    </tr>
+    <tr>
+      <th>No</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">OnlineSecurity</th>
+      <th>No</th>
+      <td>2037</td>
+      <td>1461</td>
+      <td>41.766724</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1724</td>
+      <td>295</td>
+      <td>14.611194</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">OnlineBackup</th>
+      <th>No</th>
+      <td>1855</td>
+      <td>1233</td>
+      <td>39.928756</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1906</td>
+      <td>523</td>
+      <td>21.531494</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">DeviceProtection</th>
+      <th>No</th>
+      <td>1884</td>
+      <td>1211</td>
+      <td>39.127625</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1877</td>
+      <td>545</td>
+      <td>22.502064</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">TechSupport</th>
+      <th>No</th>
+      <td>2027</td>
+      <td>1446</td>
+      <td>41.635474</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1734</td>
+      <td>310</td>
+      <td>15.166341</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">StreamingTV</th>
+      <th>No</th>
+      <td>1868</td>
+      <td>942</td>
+      <td>33.523132</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1893</td>
+      <td>814</td>
+      <td>30.070188</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">StreamingMovies</th>
+      <th>No</th>
+      <td>1847</td>
+      <td>938</td>
+      <td>33.680431</td>
+    </tr>
+    <tr>
+      <th>No internet service</th>
+      <td>1413</td>
+      <td>113</td>
+      <td>7.404980</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>1914</td>
+      <td>818</td>
+      <td>29.941435</td>
+    </tr>
+    <tr>
+      <th rowspan="3" valign="top">Contract</th>
+      <th>Month-to-month</th>
+      <td>2220</td>
+      <td>1655</td>
+      <td>42.709677</td>
+    </tr>
+    <tr>
+      <th>One year</th>
+      <td>1307</td>
+      <td>166</td>
+      <td>11.269518</td>
+    </tr>
+    <tr>
+      <th>Two year</th>
+      <td>1647</td>
+      <td>48</td>
+      <td>2.831858</td>
+    </tr>
+    <tr>
+      <th rowspan="2" valign="top">PaperlessBilling</th>
+      <th>No</th>
+      <td>2403</td>
+      <td>469</td>
+      <td>16.330084</td>
+    </tr>
+    <tr>
+      <th>Yes</th>
+      <td>2771</td>
+      <td>1400</td>
+      <td>33.565092</td>
+    </tr>
+    <tr>
+      <th rowspan="4" valign="top">PaymentMethod</th>
+      <th>Bank transfer (automatic)</th>
+      <td>1286</td>
+      <td>258</td>
+      <td>16.709845</td>
+    </tr>
+    <tr>
+      <th>Credit card (automatic)</th>
+      <td>1290</td>
+      <td>232</td>
+      <td>15.243101</td>
+    </tr>
+    <tr>
+      <th>Electronic check</th>
+      <td>1294</td>
+      <td>1071</td>
+      <td>45.285412</td>
+    </tr>
+    <tr>
+      <th>Mailed check</th>
+      <td>1304</td>
+      <td>308</td>
+      <td>19.106700</td>
     </tr>
   </tbody>
 </table>
