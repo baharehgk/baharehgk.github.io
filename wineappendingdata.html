@@ -13078,20 +13078,27 @@ div#notebook {
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h1 id="Case-Study-(Wine-Quality)-:-Appending-Data">Case Study (Wine Quality) : Appending Data<a class="anchor-link" href="#Case-Study-(Wine-Quality)-:-Appending-Data">&#182;</a></h1>
-<pre><code>newname_dataframe = first_dataframe.append (second_dataframe, ignore_index=True)
+<pre><code>new_dataframe = first_dataframe.append (second_dataframe, ignore_index=True)
 
-newname_dataframe: df_wine
-first_dataframe: df_red
-second_dataframe: df_white
+* new_dataframe: df_wine
+* first_dataframe: df_red
+* second_dataframe: df_white
 
 df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Loading-Data-(Red-Wine-Dataset-&amp;-White-Wine-Dataset)">Loading Data (Red Wine Dataset &amp; White Wine Dataset)<a class="anchor-link" href="#Loading-Data-(Red-Wine-Dataset-&amp;-White-Wine-Dataset)">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13107,14 +13114,19 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Creating-a-new-column-'color'-in-both-datasets-before-appending-data">Creating a new column 'color' in both datasets before appending data<a class="anchor-link" href="#Creating-a-new-column-'color'-in-both-datasets-before-appending-data">&#182;</a></h3>
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Creating a new column &#39;color&#39; in both datasets before appending data</span>
-
-<span class="n">df_red</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_red</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
 
 <span class="n">df_white</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
 </pre></div>
@@ -13133,12 +13145,12 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_wine</span> <span class="o">=</span> <span class="n">df_red</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">df_white</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
-<span class="n">df_wine</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">df_wine</span>
 </pre></div>
 
     </div>
@@ -13151,7 +13163,7 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[17]:</div>
+    <div class="prompt output_prompt">Out[6]:</div>
 
 
 
@@ -13174,15 +13186,15 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>fixed acidity</th>
-      <th>volatile acidity</th>
-      <th>citric acid</th>
-      <th>residual sugar</th>
+      <th>fixed_acidity</th>
+      <th>volatile_acidity</th>
+      <th>citric_acid</th>
+      <th>residual_sugar</th>
       <th>chlorides</th>
-      <th>free sulfur dioxide</th>
-      <th>total sulfur dioxide</th>
+      <th>free_sulfur_dioxide</th>
+      <th>total_sulfur_dioxide</th>
       <th>density</th>
-      <th>pH</th>
+      <th>ph</th>
       <th>sulphates</th>
       <th>alcohol</th>
       <th>quality</th>
@@ -13199,7 +13211,7 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
       <td>0.076</td>
       <td>11.0</td>
       <td>34.0</td>
-      <td>0.9978</td>
+      <td>0.99780</td>
       <td>3.51</td>
       <td>0.56</td>
       <td>9.4</td>
@@ -13215,7 +13227,7 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
       <td>0.098</td>
       <td>25.0</td>
       <td>67.0</td>
-      <td>0.9968</td>
+      <td>0.99680</td>
       <td>3.20</td>
       <td>0.68</td>
       <td>9.8</td>
@@ -13231,7 +13243,7 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
       <td>0.092</td>
       <td>15.0</td>
       <td>54.0</td>
-      <td>0.9970</td>
+      <td>0.99700</td>
       <td>3.26</td>
       <td>0.65</td>
       <td>9.8</td>
@@ -13247,7 +13259,7 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
       <td>0.075</td>
       <td>17.0</td>
       <td>60.0</td>
-      <td>0.9980</td>
+      <td>0.99800</td>
       <td>3.16</td>
       <td>0.58</td>
       <td>9.8</td>
@@ -13263,15 +13275,112 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
       <td>0.076</td>
       <td>11.0</td>
       <td>34.0</td>
-      <td>0.9978</td>
+      <td>0.99780</td>
       <td>3.51</td>
       <td>0.56</td>
       <td>9.4</td>
       <td>5</td>
       <td>red</td>
     </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6492</th>
+      <td>6.2</td>
+      <td>0.21</td>
+      <td>0.29</td>
+      <td>1.6</td>
+      <td>0.039</td>
+      <td>24.0</td>
+      <td>92.0</td>
+      <td>0.99114</td>
+      <td>3.27</td>
+      <td>0.50</td>
+      <td>11.2</td>
+      <td>6</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <th>6493</th>
+      <td>6.6</td>
+      <td>0.32</td>
+      <td>0.36</td>
+      <td>8.0</td>
+      <td>0.047</td>
+      <td>57.0</td>
+      <td>168.0</td>
+      <td>0.99490</td>
+      <td>3.15</td>
+      <td>0.46</td>
+      <td>9.6</td>
+      <td>5</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <th>6494</th>
+      <td>6.5</td>
+      <td>0.24</td>
+      <td>0.19</td>
+      <td>1.2</td>
+      <td>0.041</td>
+      <td>30.0</td>
+      <td>111.0</td>
+      <td>0.99254</td>
+      <td>2.99</td>
+      <td>0.46</td>
+      <td>9.4</td>
+      <td>6</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <th>6495</th>
+      <td>5.5</td>
+      <td>0.29</td>
+      <td>0.30</td>
+      <td>1.1</td>
+      <td>0.022</td>
+      <td>20.0</td>
+      <td>110.0</td>
+      <td>0.98869</td>
+      <td>3.34</td>
+      <td>0.38</td>
+      <td>12.8</td>
+      <td>7</td>
+      <td>white</td>
+    </tr>
+    <tr>
+      <th>6496</th>
+      <td>6.0</td>
+      <td>0.21</td>
+      <td>0.38</td>
+      <td>0.8</td>
+      <td>0.020</td>
+      <td>22.0</td>
+      <td>98.0</td>
+      <td>0.98941</td>
+      <td>3.26</td>
+      <td>0.32</td>
+      <td>11.8</td>
+      <td>6</td>
+      <td>white</td>
+    </tr>
   </tbody>
 </table>
+<p>6497 rows × 13 columns</p>
 </div>
 </div>
 
@@ -13284,18 +13393,18 @@ df_wine = df_red.append(df_white, ignore_index=True)</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Exporting-new-dataset-(df_wine)-to-new-csv-file">Exporting new dataset (df_wine) to new csv file<a class="anchor-link" href="#Exporting-new-dataset-(df_wine)-to-new-csv-file">&#182;</a></h1>
+<h3 id="Exporting-new-dataset-(df_wine)">Exporting new dataset (df_wine)<a class="anchor-link" href="#Exporting-new-dataset-(df_wine)">&#182;</a></h3>
+<pre><code>- Exporting (df_wine) to csv file called 'wine.csv'</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[19]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Exporting new dataframe (df_wine) to new csv file &#39;wine.csv&#39;</span>
-
-<span class="n">df_wine</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;wine.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_wine</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;wine.csv&#39;</span><span class="p">,</span> <span class="n">index</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
