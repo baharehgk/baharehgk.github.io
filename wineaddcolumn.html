@@ -13077,13 +13077,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Case-Study-(Wine-Quality)-:-Adding-a-new-column">Case Study (Wine Quality) : Adding a new column<a class="anchor-link" href="#Case-Study-(Wine-Quality)-:-Adding-a-new-column">&#182;</a></h1>
+<h1 id="Case-Study-(Wine-Quality)-:-Adding-Color-Column">Case Study (Wine Quality) : Adding Color Column<a class="anchor-link" href="#Case-Study-(Wine-Quality)-:-Adding-Color-Column">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13102,20 +13102,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Adding-a-new-column">Adding a new column<a class="anchor-link" href="#Adding-a-new-column">&#182;</a></h1>
+<h1 id="Adding-a-new-column--&gt;-Color-Column">Adding a new column -&gt; Color Column<a class="anchor-link" href="#Adding-a-new-column--&gt;-Color-Column">&#182;</a></h1>
+<pre><code>- Creating a new column 'color' in both datasets before appending data 
+
+- After appending data column 'color' indicates : 
+
+which rows is related to red wine and which rows is related to white wine</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[17]:</div>
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Creating a new column &#39;color&#39; in both datasets, before appending data </span>
-
-<span class="c1"># Column &#39;color&#39;-&gt; indicating which rows is related to red wine and which rows is related to white wine</span>
-
-<span class="n">df_red</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_red</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;red&#39;</span>
 
 <span class="n">df_white</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;color&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;white&#39;</span>
 </pre></div>
@@ -13127,7 +13129,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[10]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_red</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13143,7 +13145,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[10]:</div>
 
 
 
@@ -13166,15 +13168,15 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>fixed acidity</th>
-      <th>volatile acidity</th>
-      <th>citric acid</th>
-      <th>residual sugar</th>
+      <th>fixed_acidity</th>
+      <th>volatile_acidity</th>
+      <th>citric_acid</th>
+      <th>residual_sugar</th>
       <th>chlorides</th>
-      <th>free sulfur dioxide</th>
-      <th>total sulfur dioxide</th>
+      <th>free_sulfur_dioxide</th>
+      <th>total_sulfur_dioxide</th>
       <th>density</th>
-      <th>pH</th>
+      <th>ph</th>
       <th>sulphates</th>
       <th>alcohol</th>
       <th>quality</th>
@@ -13275,7 +13277,7 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[11]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df_white</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -13291,7 +13293,7 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[11]:</div>
 
 
 
@@ -13314,15 +13316,15 @@ div#notebook {
   <thead>
     <tr style="text-align: right;">
       <th></th>
-      <th>fixed acidity</th>
-      <th>volatile acidity</th>
-      <th>citric acid</th>
-      <th>residual sugar</th>
+      <th>fixed_acidity</th>
+      <th>volatile_acidity</th>
+      <th>citric_acid</th>
+      <th>residual_sugar</th>
       <th>chlorides</th>
-      <th>free sulfur dioxide</th>
-      <th>total sulfur dioxide</th>
+      <th>free_sulfur_dioxide</th>
+      <th>total_sulfur_dioxide</th>
       <th>density</th>
-      <th>pH</th>
+      <th>ph</th>
       <th>sulphates</th>
       <th>alcohol</th>
       <th>quality</th>
