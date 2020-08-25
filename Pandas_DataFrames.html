@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Pandas_Series</title>
+<title>Pandas_DataFrames</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,39 +13077,37 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pandas---Series">Pandas - Series<a class="anchor-link" href="#Pandas---Series">&#182;</a></h1><ul>
-<li>Importing Pandas library</li>
-<li>Creating series</li>
-<li>Converting a list to a pandas series</li>
-<li>Checking type</li>
-<li><p>Statistical Functions</p>
+<h1 id="Pandas---DataFrames">Pandas - DataFrames<a class="anchor-link" href="#Pandas---DataFrames">&#182;</a></h1>
+<pre><code>*  2-Dimensional pandas object is a dataframe
+
+</code></pre>
+<ul>
+<li>Importing Pandas Library</li>
+<li>Converting a list to a dataframe</li>
+<li>Converting a dictionary to a dataframe</li>
+<li>Loading Data</li>
+<li>Saving DataFrame to an Excel file &amp; a CSV file  </li>
+<li>Summary Statistics </li>
+<li>Summary Statistics (Categorical Columns)</li>
+<li>Statistical Functions</li>
+<li>Finding Unique values</li>
+<li>DataFrame Information</li>
+<li>Number of Rows &amp; Columns</li>
+<li>Columns Name</li>
+<li>Columns Datatypes</li>
+<li>Number of Missing Values</li>
+<li><p>Slicing Data</p>
 <ol>
-<li><p>count(): number of observations excluding missing values</p>
+<li><p>by loc: using row_index &amp; column_label</p>
 </li>
-<li><p>sum(): sum of values</p>
+<li><p>by iloc: using row_index &amp; column_index</p>
 </li>
-<li><p>mean(): mean of Values</p>
-</li>
-<li><p>median(): median of Values</p>
-</li>
-<li><p>mode(): mode of values</p>
-</li>
-<li><p>std(): standard Deviation of the Values</p>
-</li>
-<li><p>min(): minimum Value</p>
-</li>
-<li><p>max(): maximum Value</p>
-</li>
-<li><p>value_counts():  number of unique observations</p>
+<li><p>Alternative Way</p>
 </li>
 </ol>
 </li>
-</ul>
-<ul>
-<li>Unique Values</li>
-<li>Descriptive statistics</li>
-<li>Sorting values</li>
-<li>Saving Changes</li>
+<li><p>Query or Filtering using Boolean Operations</p>
+</li>
 </ul>
 
 </div>
@@ -13118,13 +13116,13 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Importig-pandas-Library">Importig pandas Library<a class="anchor-link" href="#Importig-pandas-Library">&#182;</a></h1>
+<h1 id="Importing-Pandas-Library">Importing Pandas Library<a class="anchor-link" href="#Importing-Pandas-Library">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[81]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
@@ -13138,24 +13136,20 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Creating-Series">Creating Series<a class="anchor-link" href="#Creating-Series">&#182;</a></h1>
-<pre><code>- A pandas series is a single dimension column of data
-
-- \n -&gt; prints the result in the next line</code></pre>
-
+<h1 id="Converting-a-list-to-a-dataframe">Converting a list to a dataframe<a class="anchor-link" href="#Converting-a-list-to-a-dataframe">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[82]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="s1">&#39;c&#39;</span><span class="p">]</span>
 
-<span class="n">my_salary_series</span> <span class="o">=</span> <span class="n">Series</span> <span class="p">([</span><span class="mi">80000</span><span class="p">,</span><span class="mi">50000</span><span class="p">,</span><span class="mi">45000</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;nancy&#39;</span><span class="p">,</span><span class="s1">&#39;henry&#39;</span><span class="p">])</span>
+<span class="n">my_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
 
-<span class="n">my_salary_series</span>
+<span class="n">my_dataframe</span>
 </pre></div>
 
     </div>
@@ -13168,63 +13162,50 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[82]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>john     80000
-nancy    50000
-henry    45000
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>0</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>a</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>b</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>c</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - John&#39;s Salary is:&quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - Salaries less than 50000 is: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="p">[</span><span class="n">my_salary_series</span><span class="o">&lt;</span><span class="mi">50000</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - All Salaries: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - All Indexes: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
- - John&#39;s Salary is: 80000
-
- - Salaries less than 50000 is:  henry    45000
-dtype: int64
-
- - All Salaries:  [80000 50000 45000]
-
- - All Indexes:  Index([&#39;john&#39;, &#39;nancy&#39;, &#39;henry&#39;], dtype=&#39;object&#39;)
-</pre>
-</div>
 </div>
 
 </div>
@@ -13234,20 +13215,22 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Converting-List-to-Series">Converting List to Series<a class="anchor-link" href="#Converting-List-to-Series">&#182;</a></h1>
+<h1 id="Converting-a-dictionary-to-a-dataframe">Converting a dictionary to a dataframe<a class="anchor-link" href="#Converting-a-dictionary-to-a-dataframe">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[83]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_dictionary</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span>
+    <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;John&#39;</span> <span class="p">,</span> <span class="s1">&#39;Sara&#39;</span><span class="p">,</span> <span class="s1">&#39;Steve&#39;</span><span class="p">,</span> <span class="s1">&#39;Rose&#39;</span><span class="p">,</span> <span class="s1">&#39;Bob&#39;</span><span class="p">],</span>
+    <span class="s1">&#39;salary&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">300</span><span class="p">]})</span>
 
-<span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
+<span class="n">my_dataframe</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">my_dictionary</span><span class="p">)</span>
 
-<span class="n">my_series</span>
+<span class="n">my_dataframe</span>
 </pre></div>
 
     </div>
@@ -13260,77 +13243,64 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[5]:</div>
+    <div class="prompt output_prompt">Out[83]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>0    10
-1    44
-2    30
-3    75
-4    62
-5    67
-6    30
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>John</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Sara</td>
+      <td>200</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Steve</td>
+      <td>400</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Rose</td>
+      <td>500</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Bob</td>
+      <td>300</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - my series all values:</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - my series all indexs:</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation with index 3 : &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation with index 5 : &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation less than 50: </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="n">my_series</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
- - my series all values:
-  [10 44 30 75 62 67 30]
-
- - my series all indexs:
-  RangeIndex(start=0, stop=7, step=1)
-
- - Observation with index 3 :  75
-
- - Observation with index 5 :  67
-
- - Observation less than 50: 
-  0    10
-1    44
-2    30
-6    30
-dtype: int64
-</pre>
-</div>
 </div>
 
 </div>
@@ -13340,18 +13310,45 @@ dtype: int64
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Checking-Type">Checking Type<a class="anchor-link" href="#Checking-Type">&#182;</a></h1>
+<h1 id="Loading-Data">Loading Data<a class="anchor-link" href="#Loading-Data">&#182;</a></h1>
+<pre><code>- Imporing Data from a github source
+
+ url = "https://..." 
+ df = pd.read_csv(url)    -&gt; df: name of our DataFrame
+
+- Imporing Data from a csv file or excel file
+
+ df = pd.read_csv('Titanic.csv')
+
+ df = pd.read_csv('Titanic.xlsx')
+
+
+- Reading Data
+
+- df -&gt; getting first few rows and last few rows
+
+
+- df.head()   -&gt; Displaying first 5 rows
+- df.head(n)  -&gt; Displaying first n rows
+- df.head(10) -&gt; Displaying first 10 rows
+
+- df.tail()   -&gt; Displaying last 5 rows
+- df.tail(n)  -&gt; Displaying last n rows
+- df.tail(10) -&gt; Displaying last 10 rows</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
+<div class="prompt input_prompt">In&nbsp;[84]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_series</span><span class="p">))</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;https://datascienceschools.github.io/Titanic.csv&quot;</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_salary_series</span><span class="p">))</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13364,14 +13361,547 @@ dtype: int64
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[84]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
-Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
-</pre>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Allen, Miss. Elisabeth Walton</td>
+      <td>female</td>
+      <td>29.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24160</td>
+      <td>211.3375</td>
+      <td>B5</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
 </div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Description-of-the-columns">Description of the columns<a class="anchor-link" href="#Description-of-the-columns">&#182;</a></h2>
+<pre><code>* pclass:    Class of travel
+* name:      Full name of the passenger
+* sex:       Gender
+* age:       Numerical age
+* sibsp:     Number of siblings/spouse aboard
+* parch:     Number of parents/child aboard
+* ticket:    Ticket number
+* fare:      Cost of the ticket
+* cabin:     Location of room
+* emarked:   Port that the passenger embarked at 
+                 (C - Cherbourg, S - Southampton, Q = Queenstown)
+* survived:  Survial metric (0 - died, 1 - survived)</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Saving-DataFrame-to-an-Excel-file-&amp;-a-CSV-file">Saving DataFrame to an Excel file &amp; a CSV file<a class="anchor-link" href="#Saving-DataFrame-to-an-Excel-file-&amp;-a-CSV-file">&#182;</a></h1>
+<pre><code>  - Save to a Commma Separated File (CSV)
+
+         df.to_csv("file_name.csv")
+
+  - Save to an Excel File
+
+        df.to_excel("file_name.xlsx")</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[85]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s2">&quot;Titanic.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">to_excel</span><span class="p">(</span><span class="s2">&quot;Titanic.xlsx&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary-Statistics">Summary Statistics<a class="anchor-link" href="#Summary-Statistics">&#182;</a></h1>
+<pre><code>   - Summary Statistics of all columns with numerical data
+
+     df.describe()
+
+ - Summary Statistics of specified columns with numerical data 
+
+     df['column_name'].describe()
+
+     df[['column_name_1', ..., 'column_name_n']].describe()</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[86]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[86]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>fare</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1309.000000</td>
+      <td>1046.000000</td>
+      <td>1309.000000</td>
+      <td>1309.000000</td>
+      <td>1308.000000</td>
+      <td>1309.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.294882</td>
+      <td>29.881135</td>
+      <td>0.498854</td>
+      <td>0.385027</td>
+      <td>33.295479</td>
+      <td>0.381971</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.837836</td>
+      <td>14.413500</td>
+      <td>1.041658</td>
+      <td>0.865560</td>
+      <td>51.758668</td>
+      <td>0.486055</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>0.166700</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>21.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>7.895800</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.000000</td>
+      <td>28.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>14.454200</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>39.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>31.275000</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.000000</td>
+      <td>80.000000</td>
+      <td>8.000000</td>
+      <td>9.000000</td>
+      <td>512.329200</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Summary-Statistics-(Categorical-Columns)">Summary Statistics (Categorical Columns)<a class="anchor-link" href="#Summary-Statistics-(Categorical-Columns)">&#182;</a></h1>
+<pre><code>- Add -&gt; include='all'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[87]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">describe</span><span class="p">(</span><span class="n">include</span><span class="o">=</span><span class="s1">&#39;all&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[87]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>1309.000000</td>
+      <td>1309</td>
+      <td>1309</td>
+      <td>1046.000000</td>
+      <td>1309.000000</td>
+      <td>1309.000000</td>
+      <td>1309</td>
+      <td>1308.000000</td>
+      <td>295</td>
+      <td>1307</td>
+      <td>1309.000000</td>
+    </tr>
+    <tr>
+      <th>unique</th>
+      <td>NaN</td>
+      <td>1307</td>
+      <td>2</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>929</td>
+      <td>NaN</td>
+      <td>186</td>
+      <td>3</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>top</th>
+      <td>NaN</td>
+      <td>Kelly, Mr. James</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>CA. 2343</td>
+      <td>NaN</td>
+      <td>C23 C25 C27</td>
+      <td>S</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>freq</th>
+      <td>NaN</td>
+      <td>2</td>
+      <td>843</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>11</td>
+      <td>NaN</td>
+      <td>6</td>
+      <td>914</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>2.294882</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>29.881135</td>
+      <td>0.498854</td>
+      <td>0.385027</td>
+      <td>NaN</td>
+      <td>33.295479</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.381971</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>0.837836</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>14.413500</td>
+      <td>1.041658</td>
+      <td>0.865560</td>
+      <td>NaN</td>
+      <td>51.758668</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.486055</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>1.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.166700</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>2.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>21.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>7.895800</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>28.000000</td>
+      <td>0.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>14.454200</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>39.000000</td>
+      <td>1.000000</td>
+      <td>0.000000</td>
+      <td>NaN</td>
+      <td>31.275000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>3.000000</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>80.000000</td>
+      <td>8.000000</td>
+      <td>9.000000</td>
+      <td>NaN</td>
+      <td>512.329200</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>1.000000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
 </div>
 
 </div>
@@ -13398,7 +13928,20 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 8.  max(): maximum Value
 
-9.  value_counts():  number of unique observations</code></pre>
+  Example:
+
+      - For all columns 
+
+         df.count() -&gt; Showing count for all columns
+
+         df.count(numeric_only=True) -&gt; Showing count for numeric columns
+
+
+     - For specified columns with numerical data 
+
+         df['column_name'].count()
+
+         df[['column_name_1', ..., 'column_name_n']].count()</code></pre>
 
 </div>
 </div>
@@ -13412,10 +13955,10 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
+<div class="prompt input_prompt">In&nbsp;[88]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13428,13 +13971,54 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[14]:</div>
+    <div class="prompt output_prompt">Out[88]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>75</pre>
+<pre>pclass        3.0000
+age          80.0000
+sibsp         8.0000
+parch         9.0000
+fare        512.3292
+survived      1.0000
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[89]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[89]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>age      80.0000
+fare    512.3292
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13446,16 +14030,16 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Minimun">Finding Minimun<a class="anchor-link" href="#Finding-Minimun">&#182;</a></h2>
+<h2 id="Finding-Minimum">Finding Minimum<a class="anchor-link" href="#Finding-Minimum">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="prompt input_prompt">In&nbsp;[90]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13468,13 +14052,54 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[9]:</div>
+    <div class="prompt output_prompt">Out[90]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>10</pre>
+<pre>pclass      1.0000
+age         0.1667
+sibsp       0.0000
+parch       0.0000
+fare        0.0000
+survived    0.0000
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[91]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[91]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>age     0.1667
+fare    0.0000
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13492,10 +14117,10 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
+<div class="prompt input_prompt">In&nbsp;[92]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13508,13 +14133,54 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[10]:</div>
+    <div class="prompt output_prompt">Out[92]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>45.42857142857143</pre>
+<pre>pclass       2.294882
+age         29.881135
+sibsp        0.498854
+parch        0.385027
+fare        33.295479
+survived     0.381971
+dtype: float64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[93]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[93]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>age     29.881135
+fare    33.295479
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13532,10 +14198,10 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
+<div class="prompt input_prompt">In&nbsp;[94]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13548,13 +14214,19 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[11]:</div>
+    <div class="prompt output_prompt">Out[94]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>44.0</pre>
+<pre>pclass       3.0000
+age         28.0000
+sibsp        0.0000
+parch        0.0000
+fare        14.4542
+survived     0.0000
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13562,61 +14234,13 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Mode">Finding Mode<a class="anchor-link" href="#Finding-Mode">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0    30
-dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Sum-of-observatios">Finding Sum of observatios<a class="anchor-link" href="#Finding-Sum-of-observatios">&#182;</a></h2>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[95]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13635,7 +14259,9 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>318</pre>
+<pre>age     28.0000
+fare    14.4542
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13647,49 +14273,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-total-number-of-observations">Finding total number of observations<a class="anchor-link" href="#Finding-total-number-of-observations">&#182;</a></h2>
-<pre><code>- exculing Null Observations -&gt; missing values</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[13]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>7</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Counting-the-number-of-unique-observations">Counting the number of unique observations<a class="anchor-link" href="#Counting-the-number-of-unique-observations">&#182;</a></h2>
+<h2 id="Finding-Mode">Finding Mode<a class="anchor-link" href="#Finding-Mode">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13698,7 +14282,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[96]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13715,55 +14299,38 @@ dtype: int64</pre>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>30    2
-67    1
-62    1
-44    1
-75    1
-10    1
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fare</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>24.0</td>
+      <td>8.05</td>
+    </tr>
+  </tbody>
+</table>
 </div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Finding-Unique-Values">Finding Unique Values<a class="anchor-link" href="#Finding-Unique-Values">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[16]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>array([10, 44, 30, 75, 62, 67])</pre>
 </div>
 
 </div>
@@ -13775,55 +14342,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Descriptive-Statistics">Descriptive Statistics<a class="anchor-link" href="#Descriptive-Statistics">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[15]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>count     7.000000
-mean     45.428571
-std      23.621016
-min      10.000000
-25%      30.000000
-50%      44.000000
-75%      64.500000
-max      75.000000
-dtype: float64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sorting-my_series-(default:-ascending)">Sorting my_series (default: ascending)<a class="anchor-link" href="#Sorting-my_series-(default:-ascending)">&#182;</a></h1>
+<h2 id="Finding-Standard-Deviation">Finding Standard Deviation<a class="anchor-link" href="#Finding-Standard-Deviation">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13832,7 +14351,7 @@ dtype: float64</pre>
 <div class="prompt input_prompt">In&nbsp;[97]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13851,14 +14370,13 @@ dtype: float64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>0    10
-2    30
-6    30
-1    44
-4    62
-5    67
-3    75
-dtype: int64</pre>
+<pre>pclass       0.837836
+age         14.413500
+sibsp        1.041658
+parch        0.865560
+fare        51.758668
+survived     0.486055
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13866,20 +14384,13 @@ dtype: int64</pre>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sorting-my_series-(descending)">Sorting my_series (descending)<a class="anchor-link" href="#Sorting-my_series-(descending)">&#182;</a></h1>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[98]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">std</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13898,14 +14409,9 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-6    30
-2    30
-0    10
-dtype: int64</pre>
+<pre>age     14.413500
+fare    51.758668
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13917,18 +14423,7 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Save-Changes-(two-ways)">Save Changes (two ways)<a class="anchor-link" href="#Save-Changes-(two-ways)">&#182;</a></h1>
-<pre><code>- 1. my_series.sort_values(ascending=False, inplace=True)
-
-- 2. my_series = my_series.sort_values(ascending=False)</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="First-way">First way<a class="anchor-link" href="#First-way">&#182;</a></h3>
+<h2 id="Finding-Sum-of-values">Finding Sum of values<a class="anchor-link" href="#Finding-Sum-of-values">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -13937,9 +14432,7 @@ dtype: int64</pre>
 <div class="prompt input_prompt">In&nbsp;[99]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-
-<span class="n">my_series</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">numeric_only</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -13958,14 +14451,13 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-6    30
-2    30
-0    10
-dtype: int64</pre>
+<pre>pclass       3004.0000
+age         31255.6667
+sibsp         653.0000
+parch         504.0000
+fare        43550.4869
+survived      500.0000
+dtype: float64</pre>
 </div>
 
 </div>
@@ -13973,22 +14465,13 @@ dtype: int64</pre>
 </div>
 </div>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Second-way">Second way<a class="anchor-link" href="#Second-way">&#182;</a></h3>
-</div>
-</div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[100]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span> <span class="o">=</span> <span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">my_series</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;fare&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -14007,13 +14490,57 @@ dtype: int64</pre>
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-2    30
-6    30
-0    10
+<pre>43550.4869</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Finding-total-number-of-values">Finding total number of values<a class="anchor-link" href="#Finding-total-number-of-values">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[101]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[101]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pclass      1309
+name        1309
+sex         1309
+age         1046
+sibsp       1309
+parch       1309
+ticket      1309
+fare        1308
+cabin        295
+embarked    1307
+survived    1309
 dtype: int64</pre>
 </div>
 
@@ -14022,6 +14549,3517 @@ dtype: int64</pre>
 </div>
 </div>
 
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[102]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span> <span class="s1">&#39;fare&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[102]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>age     1046
+fare    1308
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Finding-Unique-values">Finding Unique values<a class="anchor-link" href="#Finding-Unique-values">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[103]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;embarked&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[103]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>array([&#39;S&#39;, &#39;C&#39;, nan, &#39;Q&#39;], dtype=object)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="DataFrame-Information">DataFrame Information<a class="anchor-link" href="#DataFrame-Information">&#182;</a></h1>
+<pre><code>     - RangeIndex: 1309 -&gt; total 1309 rows in our dataframe
+
+     - Data columns (total 11 columns) -&gt; total 11 columns in our dataframe
+
+     - Other function to get number of rows and columns: 
+
+                 - df.shape
+
+                     (1309, 11)
+
+     - Other function to get the name of columns:
+
+                 - df.columns
+
+                     Index(['pclass', 'name', 'sex', 'age', 'sibsp', 'parch', 
+                     'ticket', 'fare','cabin', 'embarked', 'survived']
+
+     - Datatype integer -&gt; pclass, sibsp, parch, survived
+     - Datatype float   -&gt; age, fare
+     - Datatype object  -&gt; name, sex,ticket, cabin, embarked
+
+     - Other function to get the type of data in each column:
+
+                - df.dtypes
+
+
+     - Number of rows excluding missing values:
+
+         pclass,name,sex, sinsp, parch, ticket, survived : 1309 rows
+         age: 1046 rows
+         fare: 1308 rows
+         cabin: 295 rows
+         embarked: 1307 rows
+
+        =&gt; as we have total 1309 rows, some columns have missing values: 
+
+            - age, fare, cabin, embarked
+
+        - Function to get the total numbar of missing values in each column:
+
+            - df.isnull().sum()        </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[104]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">info</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt"></div>
+
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>&lt;class &#39;pandas.core.frame.DataFrame&#39;&gt;
+RangeIndex: 1309 entries, 0 to 1308
+Data columns (total 11 columns):
+ #   Column    Non-Null Count  Dtype  
+---  ------    --------------  -----  
+ 0   pclass    1309 non-null   int64  
+ 1   name      1309 non-null   object 
+ 2   sex       1309 non-null   object 
+ 3   age       1046 non-null   float64
+ 4   sibsp     1309 non-null   int64  
+ 5   parch     1309 non-null   int64  
+ 6   ticket    1309 non-null   object 
+ 7   fare      1308 non-null   float64
+ 8   cabin     295 non-null    object 
+ 9   embarked  1307 non-null   object 
+ 10  survived  1309 non-null   int64  
+dtypes: float64(2), int64(4), object(5)
+memory usage: 112.6+ KB
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Number-of-Rows-&amp;-Columns">Number of Rows &amp; Columns<a class="anchor-link" href="#Number-of-Rows-&amp;-Columns">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[105]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[105]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1309, 11)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Columns-Name">Columns Name<a class="anchor-link" href="#Columns-Name">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[106]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[106]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>Index([&#39;pclass&#39;, &#39;name&#39;, &#39;sex&#39;, &#39;age&#39;, &#39;sibsp&#39;, &#39;parch&#39;, &#39;ticket&#39;, &#39;fare&#39;,
+       &#39;cabin&#39;, &#39;embarked&#39;, &#39;survived&#39;],
+      dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Columns-Datatypes">Columns Datatypes<a class="anchor-link" href="#Columns-Datatypes">&#182;</a></h1>
+<pre><code>- Data type of all columns
+
+     df.dtypes
+
+ - Data type of specified columns
+
+     df[['column_name_1', ..., 'column_name_n']].dtypes</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[107]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[107]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pclass        int64
+name         object
+sex          object
+age         float64
+sibsp         int64
+parch         int64
+ticket       object
+fare        float64
+cabin        object
+embarked     object
+survived      int64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Number-of-Missing-Values">Number of Missing Values<a class="anchor-link" href="#Number-of-Missing-Values">&#182;</a></h1>
+<pre><code>- Number of Missing Values for all columns
+
+       df.isnull().sum()
+
+- Number of Missing Values for a single column
+
+       df['column_name'].isnull().sum()
+
+- Number of Missing Values for multiple columns
+
+       df[['column_name_1',...,'column_name_n']].isnull().sum()</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[108]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[108]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pclass         0
+name           0
+sex            0
+age          263
+sibsp          0
+parch          0
+ticket         0
+fare           1
+cabin       1014
+embarked       2
+survived       0
+dtype: int64</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Slicing-Data">Slicing Data<a class="anchor-link" href="#Slicing-Data">&#182;</a></h1>
+<pre><code>- 1. by loc: using row_index &amp; column_label
+
+- 2. by iloc: using row_index &amp; column_index
+
+- 3. Alternative Way</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="1.-Slicing-data-using-loc">1. Slicing data using loc<a class="anchor-link" href="#1.-Slicing-data-using-loc">&#182;</a></h2><h3 id="--Slicing-a-Single-Cell">- Slicing a Single Cell<a class="anchor-link" href="#--Slicing-a-Single-Cell">&#182;</a></h3>
+<pre><code>    df.loc[row_index, 'column_label']
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Cells">- Slicing Multiple Cells<a class="anchor-link" href="#--Slicing-Multiple-Cells">&#182;</a></h3>
+<pre><code>    df.loc[row_index, ['column_label_1',...,'column_label_n']]
+
+
+</code></pre>
+<h3 id="--Slicing-a-Single-Column">- Slicing a Single Column<a class="anchor-link" href="#--Slicing-a-Single-Column">&#182;</a></h3>
+<pre><code>    df.loc[:, 'column_label']
+
+    -&gt; : means showing all rows
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Colmuns">- Slicing Multiple Colmuns<a class="anchor-link" href="#--Slicing-Multiple-Colmuns">&#182;</a></h3>
+<pre><code>     df.loc[:, ['column_label_1', 'column_label_2', ... 'column_label_n']
+
+     -&gt; : means showing all rows
+
+
+</code></pre>
+<h3 id="--Slicing-a-Single-Row">- Slicing a Single Row<a class="anchor-link" href="#--Slicing-a-Single-Row">&#182;</a></h3>
+<pre><code>    df.loc[row_index, :]
+
+    -&gt; : means showing all columns
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Rows">- Slicing Multiple Rows<a class="anchor-link" href="#--Slicing-Multiple-Rows">&#182;</a></h3>
+<pre><code>    df.loc[row_index_range, :]
+
+    -&gt; row_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+    -&gt; : means showing all columns
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Rows-and-Multiple-Columns">- Slicing Multiple Rows and Multiple Columns<a class="anchor-link" href="#--Slicing-Multiple-Rows-and-Multiple-Columns">&#182;</a></h3>
+<pre><code>    df.loc[row_index_range, column_index_range]
+
+    -&gt; row_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+    -&gt; column_index_range means range of indexex like [:4] , [7:] , [1:6]</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Cell">Slicing a Single Cell<a class="anchor-link" href="#Slicing-a-Single-Cell">&#182;</a></h3>
+<pre><code>- row_index = 1 
+
+- column_label = 'name'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[109]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[109]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&#39;Allison, Master. Hudson Trevor&#39;</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-multiple-Cells">Slicing multiple Cells<a class="anchor-link" href="#Slicing-multiple-Cells">&#182;</a></h3>
+<pre><code>- row_index = 1 
+
+- column_label = 'name', 'age', 'fare'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[110]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;fare&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[110]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>name    Allison, Master. Hudson Trevor
+age                             0.9167
+fare                            151.55
+Name: 1, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-single-column">Slicing a single column<a class="anchor-link" href="#Slicing-a-single-column">&#182;</a></h3>
+<pre><code>- row_index = : -&gt; meaning all rows
+
+- Column_label = 'name'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[111]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span><span class="s1">&#39;name&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[111]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0                         Allen, Miss. Elisabeth Walton
+1                        Allison, Master. Hudson Trevor
+2                          Allison, Miss. Helen Loraine
+3                  Allison, Mr. Hudson Joshua Creighton
+4       Allison, Mrs. Hudson J C (Bessie Waldo Daniels)
+                             ...                       
+1304                               Zabour, Miss. Hileni
+1305                              Zabour, Miss. Thamine
+1306                          Zakarian, Mr. Mapriededer
+1307                                Zakarian, Mr. Ortin
+1308                                 Zimmerman, Mr. Leo
+Name: name, Length: 1309, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-multiple-columns">Slicing multiple columns<a class="anchor-link" href="#Slicing-multiple-columns">&#182;</a></h3>
+<pre><code>- row_index = : -&gt; meaning all rows
+
+- Column_label = 'name', 'fare', 'cabin'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[112]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,[</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;fare&#39;</span><span class="p">,</span><span class="s1">&#39;cabin&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[112]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>age</th>
+      <th>fare</th>
+      <th>cabin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>29.0000</td>
+      <td>211.3375</td>
+      <td>B5</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0.9167</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2.0000</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>30.0000</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>25.0000</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>14.5000</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1305</th>
+      <td>NaN</td>
+      <td>14.4542</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>26.5000</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>27.0000</td>
+      <td>7.2250</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>29.0000</td>
+      <td>7.8750</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>1309 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Row">Slicing a Single Row<a class="anchor-link" href="#Slicing-a-Single-Row">&#182;</a></h3>
+<pre><code>- row_index = 1 
+
+- Column_label = : -&gt; meaning all columns</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[113]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[113]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pclass                                   1
+name        Allison, Master. Hudson Trevor
+sex                                   male
+age                                 0.9167
+sibsp                                    1
+parch                                    2
+ticket                              113781
+fare                                151.55
+cabin                              C22 C26
+embarked                                 S
+survived                                 1
+Name: 1, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Rows">Slicing Multiple Rows<a class="anchor-link" href="#Slicing-Multiple-Rows">&#182;</a></h3>
+<pre><code>- row_index = 2:5 
+
+- Column_label = : -&gt; meaning all columns</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[114]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[114]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.55</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.55</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.55</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>Anderson, Mr. Harry</td>
+      <td>male</td>
+      <td>48.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19952</td>
+      <td>26.55</td>
+      <td>E12</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Rows-&amp;-Multiple-Columns">Slicing Multiple Rows &amp; Multiple Columns<a class="anchor-link" href="#Slicing-Multiple-Rows-&amp;-Multiple-Columns">&#182;</a></h3>
+<pre><code>- row_index = 1:3 
+
+- Column_label = : -&gt; 'name','fare','age'</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[115]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">3</span><span class="p">,[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;fare&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[115]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>fare</th>
+      <th>age</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>151.55</td>
+      <td>0.9167</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>151.55</td>
+      <td>2.0000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>151.55</td>
+      <td>30.0000</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Slicing-data-using-iloc">Slicing data using iloc<a class="anchor-link" href="#Slicing-data-using-iloc">&#182;</a></h2><h3 id="--Slicing-a-Single-Cell">- Slicing a Single Cell<a class="anchor-link" href="#--Slicing-a-Single-Cell">&#182;</a></h3>
+<pre><code>    df.iloc[row_index, column_index]
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Cells">- Slicing Multiple Cells<a class="anchor-link" href="#--Slicing-Multiple-Cells">&#182;</a></h3>
+<pre><code>    df.iloc[row_index, column_index_range]
+
+    -&gt; column_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+
+</code></pre>
+<h3 id="--Slicing-a-Single-Column">- Slicing a Single Column<a class="anchor-link" href="#--Slicing-a-Single-Column">&#182;</a></h3>
+<pre><code>    df.iloc[:, column_index]
+
+    -&gt; : means showing all rows
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Colmuns">- Slicing Multiple Colmuns<a class="anchor-link" href="#--Slicing-Multiple-Colmuns">&#182;</a></h3>
+<pre><code>     df.iloc[:, column_index_range]
+
+     -&gt; : means showing all rows
+     -&gt; column_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+
+</code></pre>
+<h3 id="--Slicing-a-Single-Row">- Slicing a Single Row<a class="anchor-link" href="#--Slicing-a-Single-Row">&#182;</a></h3>
+<pre><code>    df.iloc[row_index, :]
+
+    -&gt; : means showing all columns
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Rows">- Slicing Multiple Rows<a class="anchor-link" href="#--Slicing-Multiple-Rows">&#182;</a></h3>
+<pre><code>    df.iloc[row_index_range, :]
+
+    -&gt; row_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+    -&gt; : means showing all columns
+
+
+</code></pre>
+<h3 id="--Slicing-Multiple-Rows-and-Multiple-Columns">- Slicing Multiple Rows and Multiple Columns<a class="anchor-link" href="#--Slicing-Multiple-Rows-and-Multiple-Columns">&#182;</a></h3>
+<pre><code>    df.iloc[row_index_range, column_index_range]
+
+    -&gt; row_index_range means range of indexex like [:5] , [4:] , [3:8]
+
+    -&gt; column_index_range means range of indexex like [:4] , [7:] , [1:6]</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Cell">Slicing a Single Cell<a class="anchor-link" href="#Slicing-a-Single-Cell">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[116]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[116]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>1</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Cells">Slicing Multiple Cells<a class="anchor-link" href="#Slicing-Multiple-Cells">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[117]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">5</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[117]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>sex      female
+age          29
+sibsp         0
+Name: 0, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Column">Slicing a Single Column<a class="anchor-link" href="#Slicing-a-Single-Column">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[118]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">8</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[118]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0            B5
+1       C22 C26
+2       C22 C26
+3       C22 C26
+4       C22 C26
+         ...   
+1304        NaN
+1305        NaN
+1306        NaN
+1307        NaN
+1308        NaN
+Name: cabin, Length: 1309, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Columns">Slicing Multiple Columns<a class="anchor-link" href="#Slicing-Multiple-Columns">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[119]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:,</span><span class="mi">2</span><span class="p">:</span><span class="mi">6</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[119]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>female</td>
+      <td>29.0000</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>male</td>
+      <td>30.0000</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>female</td>
+      <td>25.0000</td>
+      <td>1</td>
+      <td>2</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>female</td>
+      <td>14.5000</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1305</th>
+      <td>female</td>
+      <td>NaN</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>male</td>
+      <td>26.5000</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>male</td>
+      <td>27.0000</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>male</td>
+      <td>29.0000</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+<p>1309 rows × 4 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Row">Slicing a Single Row<a class="anchor-link" href="#Slicing-a-Single-Row">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[120]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[120]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>pclass                        1
+name        Anderson, Mr. Harry
+sex                        male
+age                          48
+sibsp                         0
+parch                         0
+ticket                    19952
+fare                      26.55
+cabin                       E12
+embarked                      S
+survived                      1
+Name: 5, dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Rows">Slicing Multiple Rows<a class="anchor-link" href="#Slicing-Multiple-Rows">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[121]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">,:]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[121]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1</td>
+      <td>Anderson, Mr. Harry</td>
+      <td>male</td>
+      <td>48.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19952</td>
+      <td>26.5500</td>
+      <td>E12</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>Andrews, Miss. Kornelia Theodosia</td>
+      <td>female</td>
+      <td>63.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+      <td>77.9583</td>
+      <td>D7</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>Andrews, Mr. Thomas Jr</td>
+      <td>male</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112050</td>
+      <td>0.0000</td>
+      <td>A36</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Rows-&amp;-Multiple-Columns">Slicing Multiple Rows &amp; Multiple Columns<a class="anchor-link" href="#Slicing-Multiple-Rows-&amp;-Multiple-Columns">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[122]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">8</span><span class="p">,</span><span class="mi">2</span><span class="p">:</span><span class="mi">7</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[122]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>male</td>
+      <td>30.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>female</td>
+      <td>25.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>male</td>
+      <td>48.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19952</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>female</td>
+      <td>63.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>male</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112050</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Slicing-Data-using-Alternative-Way">Slicing Data using Alternative Way<a class="anchor-link" href="#Slicing-Data-using-Alternative-Way">&#182;</a></h1>
+<pre><code>- Slicing Columns using column_label
+
+- Slicing Rows using index_range</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Column">Slicing a Single Column<a class="anchor-link" href="#Slicing-a-Single-Column">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[123]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Allen, Miss. Elisabeth Walton</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Allison, Master. Hudson Trevor</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allison, Miss. Helen Loraine</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>Zabour, Miss. Hileni</td>
+    </tr>
+    <tr>
+      <th>1305</th>
+      <td>Zabour, Miss. Thamine</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>Zakarian, Mr. Mapriededer</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>Zakarian, Mr. Ortin</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>Zimmerman, Mr. Leo</td>
+    </tr>
+  </tbody>
+</table>
+<p>1309 rows × 1 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Columns">Slicing Multiple Columns<a class="anchor-link" href="#Slicing-Multiple-Columns">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[124]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[[</span><span class="s1">&#39;name&#39;</span><span class="p">,</span><span class="s1">&#39;age&#39;</span><span class="p">,</span><span class="s1">&#39;ticket&#39;</span><span class="p">]]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[124]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>name</th>
+      <th>age</th>
+      <th>ticket</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Allen, Miss. Elisabeth Walton</td>
+      <td>29.0000</td>
+      <td>24160</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>0.9167</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>2.0000</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>30.0000</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>25.0000</td>
+      <td>113781</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1304</th>
+      <td>Zabour, Miss. Hileni</td>
+      <td>14.5000</td>
+      <td>2665</td>
+    </tr>
+    <tr>
+      <th>1305</th>
+      <td>Zabour, Miss. Thamine</td>
+      <td>NaN</td>
+      <td>2665</td>
+    </tr>
+    <tr>
+      <th>1306</th>
+      <td>Zakarian, Mr. Mapriededer</td>
+      <td>26.5000</td>
+      <td>2656</td>
+    </tr>
+    <tr>
+      <th>1307</th>
+      <td>Zakarian, Mr. Ortin</td>
+      <td>27.0000</td>
+      <td>2670</td>
+    </tr>
+    <tr>
+      <th>1308</th>
+      <td>Zimmerman, Mr. Leo</td>
+      <td>29.0000</td>
+      <td>315082</td>
+    </tr>
+  </tbody>
+</table>
+<p>1309 rows × 3 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Slicing-Rows-using-index_range">Slicing Rows using index_range<a class="anchor-link" href="#Slicing-Rows-using-index_range">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-a-Single-Row">Slicing a Single Row<a class="anchor-link" href="#Slicing-a-Single-Row">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[125]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">3</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[125]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.55</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Slicing-Multiple-Rows">Slicing Multiple Rows<a class="anchor-link" href="#Slicing-Multiple-Rows">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[126]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="mi">6</span><span class="p">:</span><span class="mi">9</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[126]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>Andrews, Miss. Kornelia Theodosia</td>
+      <td>female</td>
+      <td>63.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+      <td>77.9583</td>
+      <td>D7</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1</td>
+      <td>Andrews, Mr. Thomas Jr</td>
+      <td>male</td>
+      <td>39.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>112050</td>
+      <td>0.0000</td>
+      <td>A36</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1</td>
+      <td>Appleton, Mrs. Edward Dale (Charlotte Lamson)</td>
+      <td>female</td>
+      <td>53.0</td>
+      <td>2</td>
+      <td>0</td>
+      <td>11769</td>
+      <td>51.4792</td>
+      <td>C101</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Query-or-Filtering-using-Boolean-Operations">Query or Filtering using Boolean Operations<a class="anchor-link" href="#Query-or-Filtering-using-Boolean-Operations">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtering-(df['pclass']-==-1)">Filtering (df['pclass'] == 1)<a class="anchor-link" href="#Filtering-(df['pclass']-==-1)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;pclass&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[127]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Allen, Miss. Elisabeth Walton</td>
+      <td>female</td>
+      <td>29.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24160</td>
+      <td>211.3375</td>
+      <td>B5</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>1</td>
+      <td>Williams-Lambert, Mr. Fletcher Fellows</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>113510</td>
+      <td>35.0000</td>
+      <td>C128</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>1</td>
+      <td>Wilson, Miss. Helen Alice</td>
+      <td>female</td>
+      <td>31.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16966</td>
+      <td>134.5000</td>
+      <td>E39 E41</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>1</td>
+      <td>Woolner, Mr. Hugh</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19947</td>
+      <td>35.5000</td>
+      <td>C52</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>1</td>
+      <td>Wright, Mr. George</td>
+      <td>male</td>
+      <td>62.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>113807</td>
+      <td>26.5500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>1</td>
+      <td>Young, Miss. Marie Grice</td>
+      <td>female</td>
+      <td>36.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17760</td>
+      <td>135.6333</td>
+      <td>C32</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>323 rows × 11 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query-('pclass-==-1')">Query ('pclass == 1')<a class="anchor-link" href="#Query-('pclass-==-1')">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;pclass == 1&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[128]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1</td>
+      <td>Allen, Miss. Elisabeth Walton</td>
+      <td>female</td>
+      <td>29.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>24160</td>
+      <td>211.3375</td>
+      <td>B5</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1</td>
+      <td>Allison, Mr. Hudson Joshua Creighton</td>
+      <td>male</td>
+      <td>30.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1</td>
+      <td>Allison, Mrs. Hudson J C (Bessie Waldo Daniels)</td>
+      <td>female</td>
+      <td>25.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>318</th>
+      <td>1</td>
+      <td>Williams-Lambert, Mr. Fletcher Fellows</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>113510</td>
+      <td>35.0000</td>
+      <td>C128</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>319</th>
+      <td>1</td>
+      <td>Wilson, Miss. Helen Alice</td>
+      <td>female</td>
+      <td>31.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>16966</td>
+      <td>134.5000</td>
+      <td>E39 E41</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>320</th>
+      <td>1</td>
+      <td>Woolner, Mr. Hugh</td>
+      <td>male</td>
+      <td>NaN</td>
+      <td>0</td>
+      <td>0</td>
+      <td>19947</td>
+      <td>35.5000</td>
+      <td>C52</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>321</th>
+      <td>1</td>
+      <td>Wright, Mr. George</td>
+      <td>male</td>
+      <td>62.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>113807</td>
+      <td>26.5500</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>322</th>
+      <td>1</td>
+      <td>Young, Miss. Marie Grice</td>
+      <td>female</td>
+      <td>36.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17760</td>
+      <td>135.6333</td>
+      <td>C32</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>323 rows × 11 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtering-(df['age']-&gt;-70)">Filtering (df['age'] &gt; 70)<a class="anchor-link" href="#Filtering-(df['age']-&gt;-70)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[129]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">70</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[129]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>Artagaveytia, Mr. Ramon</td>
+      <td>male</td>
+      <td>71.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17609</td>
+      <td>49.5042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0000</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>1</td>
+      <td>Cavendish, Mrs. Tyrell William (Julia Florence...</td>
+      <td>female</td>
+      <td>76.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>19877</td>
+      <td>78.8500</td>
+      <td>C46</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>1</td>
+      <td>Goldschmidt, Mr. George B</td>
+      <td>male</td>
+      <td>71.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17754</td>
+      <td>34.6542</td>
+      <td>A5</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>727</th>
+      <td>3</td>
+      <td>Connors, Mr. Patrick</td>
+      <td>male</td>
+      <td>70.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370369</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1235</th>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.7750</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query-('age&gt;70')">Query ('age&gt;70')<a class="anchor-link" href="#Query-('age&gt;70')">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[130]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;age&gt;70&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[130]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>Artagaveytia, Mr. Ramon</td>
+      <td>male</td>
+      <td>71.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17609</td>
+      <td>49.5042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0000</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>61</th>
+      <td>1</td>
+      <td>Cavendish, Mrs. Tyrell William (Julia Florence...</td>
+      <td>female</td>
+      <td>76.0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>19877</td>
+      <td>78.8500</td>
+      <td>C46</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>135</th>
+      <td>1</td>
+      <td>Goldschmidt, Mr. George B</td>
+      <td>male</td>
+      <td>71.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17754</td>
+      <td>34.6542</td>
+      <td>A5</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>727</th>
+      <td>3</td>
+      <td>Connors, Mr. Patrick</td>
+      <td>male</td>
+      <td>70.5</td>
+      <td>0</td>
+      <td>0</td>
+      <td>370369</td>
+      <td>7.7500</td>
+      <td>NaN</td>
+      <td>Q</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1235</th>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.7750</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtering(df['name']-==-'Barkworth,-Mr.-Algernon-Henry-Wilson'])">Filtering(df['name'] == 'Barkworth, Mr. Algernon Henry Wilson'])<a class="anchor-link" href="#Filtering(df['name']-==-'Barkworth,-Mr.-Algernon-Henry-Wilson'])">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[131]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Barkworth, Mr. Algernon Henry Wilson&#39;</span><span class="p">]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[131]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query-(&quot;name-==-'Barkworth,-Mr.-Algernon-Henry-Wilson'&quot;)">Query ("name == 'Barkworth, Mr. Algernon Henry Wilson'")<a class="anchor-link" href="#Query-(&quot;name-==-'Barkworth,-Mr.-Algernon-Henry-Wilson'&quot;)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[132]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;name == &#39;Barkworth, Mr. Algernon Henry Wilson&#39;&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[132]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Filtering(-(df['age']-&gt;-60)-|-(df['age']-&lt;-5)-)">Filtering( (df['age'] &gt; 60) | (df['age'] &lt; 5) )<a class="anchor-link" href="#Filtering(-(df['age']-&gt;-60)-|-(df['age']-&lt;-5)-)">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[133]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">60</span><span class="p">)</span> <span class="o">|</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;age&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">5</span><span class="p">)]</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[133]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>Andrews, Miss. Kornelia Theodosia</td>
+      <td>female</td>
+      <td>63.0000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+      <td>77.9583</td>
+      <td>D7</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>Artagaveytia, Mr. Ramon</td>
+      <td>male</td>
+      <td>71.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17609</td>
+      <td>49.5042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0000</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1225</th>
+      <td>3</td>
+      <td>Storey, Mr. Thomas</td>
+      <td>male</td>
+      <td>60.5000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3701</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1230</th>
+      <td>3</td>
+      <td>Strom, Miss. Telma Matilda</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>0</td>
+      <td>1</td>
+      <td>347054</td>
+      <td>10.4625</td>
+      <td>G6</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1235</th>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.7750</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1240</th>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.4167</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1261</th>
+      <td>3</td>
+      <td>Turkula, Mrs. (Hedwig)</td>
+      <td>female</td>
+      <td>63.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4134</td>
+      <td>9.5875</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 11 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Query('age-&gt;-60-|-age-&lt;-5')">Query('age &gt; 60 | age &lt; 5')<a class="anchor-link" href="#Query('age-&gt;-60-|-age-&lt;-5')">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[134]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;age &gt; 60 | age &lt; 5&#39;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[134]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>pclass</th>
+      <th>name</th>
+      <th>sex</th>
+      <th>age</th>
+      <th>sibsp</th>
+      <th>parch</th>
+      <th>ticket</th>
+      <th>fare</th>
+      <th>cabin</th>
+      <th>embarked</th>
+      <th>survived</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>1</td>
+      <td>Allison, Master. Hudson Trevor</td>
+      <td>male</td>
+      <td>0.9167</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1</td>
+      <td>Allison, Miss. Helen Loraine</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>1</td>
+      <td>2</td>
+      <td>113781</td>
+      <td>151.5500</td>
+      <td>C22 C26</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>Andrews, Miss. Kornelia Theodosia</td>
+      <td>female</td>
+      <td>63.0000</td>
+      <td>1</td>
+      <td>0</td>
+      <td>13502</td>
+      <td>77.9583</td>
+      <td>D7</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1</td>
+      <td>Artagaveytia, Mr. Ramon</td>
+      <td>male</td>
+      <td>71.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>PC 17609</td>
+      <td>49.5042</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>1</td>
+      <td>Barkworth, Mr. Algernon Henry Wilson</td>
+      <td>male</td>
+      <td>80.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>27042</td>
+      <td>30.0000</td>
+      <td>A23</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>1225</th>
+      <td>3</td>
+      <td>Storey, Mr. Thomas</td>
+      <td>male</td>
+      <td>60.5000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>3701</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1230</th>
+      <td>3</td>
+      <td>Strom, Miss. Telma Matilda</td>
+      <td>female</td>
+      <td>2.0000</td>
+      <td>0</td>
+      <td>1</td>
+      <td>347054</td>
+      <td>10.4625</td>
+      <td>G6</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1235</th>
+      <td>3</td>
+      <td>Svensson, Mr. Johan</td>
+      <td>male</td>
+      <td>74.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>347060</td>
+      <td>7.7750</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1240</th>
+      <td>3</td>
+      <td>Thomas, Master. Assad Alexander</td>
+      <td>male</td>
+      <td>0.4167</td>
+      <td>0</td>
+      <td>1</td>
+      <td>2625</td>
+      <td>8.5167</td>
+      <td>NaN</td>
+      <td>C</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>1261</th>
+      <td>3</td>
+      <td>Turkula, Mrs. (Hedwig)</td>
+      <td>female</td>
+      <td>63.0000</td>
+      <td>0</td>
+      <td>0</td>
+      <td>4134</td>
+      <td>9.5875</td>
+      <td>NaN</td>
+      <td>S</td>
+      <td>1</td>
+    </tr>
+  </tbody>
+</table>
+<p>84 rows × 11 columns</p>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="NOTE:">NOTE:<a class="anchor-link" href="#NOTE:">&#182;</a></h1>
+<pre><code> a &amp; b (pandas) = a and b (python)
+ a | b (pandas) = a or b (python)</code></pre>
+
+</div>
+</div>
 </div>
     </div>
   </div>

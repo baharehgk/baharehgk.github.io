@@ -2,7 +2,7 @@
 <html>
 <head><meta charset="utf-8" />
 
-<title>Pandas_Series</title>
+<title>Pandas_Data Cleaning</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -13077,39 +13077,17 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Pandas---Series">Pandas - Series<a class="anchor-link" href="#Pandas---Series">&#182;</a></h1><ul>
-<li>Importing Pandas library</li>
-<li>Creating series</li>
-<li>Converting a list to a pandas series</li>
-<li>Checking type</li>
-<li><p>Statistical Functions</p>
-<ol>
-<li><p>count(): number of observations excluding missing values</p>
-</li>
-<li><p>sum(): sum of values</p>
-</li>
-<li><p>mean(): mean of Values</p>
-</li>
-<li><p>median(): median of Values</p>
-</li>
-<li><p>mode(): mode of values</p>
-</li>
-<li><p>std(): standard Deviation of the Values</p>
-</li>
-<li><p>min(): minimum Value</p>
-</li>
-<li><p>max(): maximum Value</p>
-</li>
-<li><p>value_counts():  number of unique observations</p>
-</li>
-</ol>
-</li>
-</ul>
-<ul>
-<li>Unique Values</li>
-<li>Descriptive statistics</li>
-<li>Sorting values</li>
-<li>Saving Changes</li>
+<h1 id="Pandas---Data-Cleaning">Pandas - Data Cleaning<a class="anchor-link" href="#Pandas---Data-Cleaning">&#182;</a></h1><ul>
+<li>Loading Data</li>
+<li>Renaming Columns</li>
+<li>Replacing text in Columns</li>
+<li>Re-arranging Column Order</li>
+<li>Checking Datatypes </li>
+<li>Converting Datatypes</li>
+<li>Missing Values</li>
+<li>Dealing with Missing Values</li>
+<li>Removing Columns</li>
+<li>Removing Rows</li>
 </ul>
 
 </div>
@@ -13118,44 +13096,22 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Importig-pandas-Library">Importig pandas Library<a class="anchor-link" href="#Importig-pandas-Library">&#182;</a></h1>
+<h1 id="Loading-Data">Loading Data<a class="anchor-link" href="#Loading-Data">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[217]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
 
-    </div>
-</div>
-</div>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://datascienceschools.github.io/Amazon_Fires.csv&quot;</span>
 
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Creating-Series">Creating Series<a class="anchor-link" href="#Creating-Series">&#182;</a></h1>
-<pre><code>- A pandas series is a single dimension column of data
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
 
-- \n -&gt; prints the result in the next line</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">pandas</span> <span class="kn">import</span> <span class="n">Series</span>
-
-<span class="n">my_salary_series</span> <span class="o">=</span> <span class="n">Series</span> <span class="p">([</span><span class="mi">80000</span><span class="p">,</span><span class="mi">50000</span><span class="p">,</span><span class="mi">45000</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span> <span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">,</span> <span class="s1">&#39;nancy&#39;</span><span class="p">,</span><span class="s1">&#39;henry&#39;</span><span class="p">])</span>
-
-<span class="n">my_salary_series</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13168,15 +13124,837 @@ div#notebook {
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[3]:</div>
+    <div class="prompt output_prompt">Out[217]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>ano</th>
+      <th>mes</th>
+      <th>estado</th>
+      <th>numero</th>
+      <th>encontro</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1998</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1998</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1999</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1999</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2001</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2002</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Renaming-Columns">Renaming Columns<a class="anchor-link" href="#Renaming-Columns">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[218]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_columns</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ano&#39;</span> <span class="p">:</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;estado&#39;</span><span class="p">:</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;mes&#39;</span><span class="p">:</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;numero&#39;</span><span class="p">:</span> <span class="s1">&#39;number_of_fires&#39;</span><span class="p">,</span>
+               <span class="s1">&#39;encontro&#39;</span><span class="p">:</span> <span class="s1">&#39;date&#39;</span><span class="p">}</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span> <span class="o">=</span> <span class="n">new_columns</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[218]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1998</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1998</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1999</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1999</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2001</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002</td>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2002</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Replacing-text-in-columns">Replacing text in columns<a class="anchor-link" href="#Replacing-text-in-columns">&#182;</a></h1>
+<pre><code>- Converting month from Portuguese to English</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[219]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">month_English</span> <span class="o">=</span> <span class="p">{</span>
+    
+<span class="s1">&#39;Janeiro&#39;</span><span class="p">:</span> <span class="s1">&#39;January&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Fevereiro&#39;</span><span class="p">:</span> <span class="s1">&#39;February&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Março&#39;</span><span class="p">:</span> <span class="s1">&#39;March&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Abril&#39;</span><span class="p">:</span> <span class="s1">&#39;April&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Maio&#39;</span><span class="p">:</span> <span class="s1">&#39;May&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Junho&#39;</span><span class="p">:</span> <span class="s1">&#39;June&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Julho&#39;</span><span class="p">:</span> <span class="s1">&#39;July&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Agosto&#39;</span><span class="p">:</span> <span class="s1">&#39;August&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Setembro&#39;</span><span class="p">:</span> <span class="s1">&#39;September&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Outubro&#39;</span><span class="p">:</span> <span class="s1">&#39;October&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Novembro&#39;</span><span class="p">:</span> <span class="s1">&#39;November&#39;</span><span class="p">,</span>
+<span class="s1">&#39;Dezembro&#39;</span><span class="p">:</span> <span class="s1">&#39;December&#39;</span><span class="p">}</span>
+
+<span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;month&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">month_English</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[219]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>year</th>
+      <th>month</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+      <th>date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1998</td>
+      <td>January</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1998</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1999</td>
+      <td>January</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/1999</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000</td>
+      <td>January</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2000</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001</td>
+      <td>January</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2001</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002</td>
+      <td>January</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+      <td>1/1/2002</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Re-arranging-Column-Order">Re-arranging Column Order<a class="anchor-link" href="#Re-arranging-Column-Order">&#182;</a></h1>
+<pre><code>- Columns indexes starts from 0, left to right
+
+- Reordering columns -&gt; date, month, year</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="First-Way">First Way<a class="anchor-link" href="#First-Way">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[220]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_order</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">new_order</span><span class="p">]]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[220]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1/1/1998</td>
+      <td>January</td>
+      <td>1998</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1/1/1999</td>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1/1/2000</td>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1/1/2001</td>
+      <td>January</td>
+      <td>2001</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1/1/2002</td>
+      <td>January</td>
+      <td>2002</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Second-Way">Second Way<a class="anchor-link" href="#Second-Way">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[221]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[221]:</div>
 
 
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>john     80000
-nancy    50000
-henry    45000
+<pre>Index([&#39;date&#39;, &#39;month&#39;, &#39;year&#39;, &#39;state&#39;, &#39;number_of_fires&#39;], dtype=&#39;object&#39;)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[222]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">new_order</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="s1">&#39;month&#39;</span><span class="p">,</span> <span class="s1">&#39;year&#39;</span><span class="p">,</span> <span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="n">new_order</span><span class="p">]</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[222]:</div>
+
+
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1/1/1998</td>
+      <td>January</td>
+      <td>1998</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1/1/1999</td>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>1/1/2000</td>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1/1/2001</td>
+      <td>January</td>
+      <td>2001</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>1/1/2002</td>
+      <td>January</td>
+      <td>2002</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>1/1/2003</td>
+      <td>January</td>
+      <td>2003</td>
+      <td>Acre</td>
+      <td>10 Fires</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>1/1/2004</td>
+      <td>January</td>
+      <td>2004</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>1/1/2005</td>
+      <td>January</td>
+      <td>2005</td>
+      <td>Acre</td>
+      <td>12 Fires</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>1/1/2006</td>
+      <td>January</td>
+      <td>2006</td>
+      <td>Acre</td>
+      <td>4 Fires</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>1/1/2007</td>
+      <td>January</td>
+      <td>2007</td>
+      <td>Acre</td>
+      <td>0 Fires</td>
+    </tr>
+  </tbody>
+</table>
+</div>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Checking-Datatype">Checking Datatype<a class="anchor-link" href="#Checking-Datatype">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[223]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[223]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>date               object
+month              object
+year                int64
+state              object
+number_of_fires    object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Converting-Object-to-Datetime-for-'date'">Converting Object to Datetime for 'date'<a class="anchor-link" href="#Converting-Object-to-Datetime-for-'date'">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[224]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;date&#39;</span><span class="p">])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[224]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>date               datetime64[ns]
+month                      object
+year                        int64
+state                      object
+number_of_fires            object
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Converting-Object-to-float-for-'number_of_fires'">Converting Object to float for 'number_of_fires'<a class="anchor-link" href="#Converting-Object-to-float-for-'number_of_fires'">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Removing-unnecessary-text-&quot;-Fires&quot;">Removing unnecessary text " Fires"<a class="anchor-link" href="#Removing-unnecessary-text-&quot;-Fires&quot;">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[225]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">(</span><span class="s2">&quot; Fires&quot;</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Converting-to-float">Converting to float<a class="anchor-link" href="#Converting-to-float">&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[226]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s2">&quot;number_of_fires&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s2">&quot;number_of_fires&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[226]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>date               datetime64[ns]
+month                      object
+year                        int64
+state                      object
+number_of_fires           float64
+dtype: object</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Missing-Values">Missing Values<a class="anchor-link" href="#Missing-Values">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[227]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+    <div class="prompt output_prompt">Out[227]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>date                 0
+month                0
+year                 0
+state                0
+number_of_fires    132
 dtype: int64</pre>
 </div>
 
@@ -13188,16 +13966,10 @@ dtype: int64</pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[228]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - John&#39;s Salary is:&quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="p">[</span><span class="s1">&#39;john&#39;</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - Salaries less than 50000 is: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="p">[</span><span class="n">my_salary_series</span><span class="o">&lt;</span><span class="mi">50000</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - All Salaries: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> - All Indexes: &quot;</span><span class="p">,</span> <span class="n">my_salary_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isnull</span><span class="p">()]</span>
 </pre></div>
 
     </div>
@@ -13210,168 +13982,131 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt"></div>
+    <div class="prompt output_prompt">Out[228]:</div>
 
 
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
- - John&#39;s Salary is: 80000
 
- - Salaries less than 50000 is:  henry    45000
-dtype: int64
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
- - All Salaries:  [80000 50000 45000]
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
- - All Indexes:  Index([&#39;john&#39;, &#39;nancy&#39;, &#39;henry&#39;], dtype=&#39;object&#39;)
-</pre>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>68</th>
+      <td>2006-01-01</td>
+      <td>April</td>
+      <td>2006</td>
+      <td>Acre</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>110</th>
+      <td>2008-01-01</td>
+      <td>June</td>
+      <td>2008</td>
+      <td>Acre</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>127</th>
+      <td>2005-01-01</td>
+      <td>July</td>
+      <td>2005</td>
+      <td>Acre</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>206</th>
+      <td>2004-01-01</td>
+      <td>November</td>
+      <td>2004</td>
+      <td>Acre</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>217</th>
+      <td>2015-01-01</td>
+      <td>November</td>
+      <td>2015</td>
+      <td>Acre</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>6305</th>
+      <td>2008-01-01</td>
+      <td>May</td>
+      <td>2008</td>
+      <td>Tocantins</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6354</th>
+      <td>2017-01-01</td>
+      <td>July</td>
+      <td>2017</td>
+      <td>Tocantins</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6383</th>
+      <td>2006-01-01</td>
+      <td>September</td>
+      <td>2006</td>
+      <td>Tocantins</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6415</th>
+      <td>1998-01-01</td>
+      <td>November</td>
+      <td>1998</td>
+      <td>Tocantins</td>
+      <td>NaN</td>
+    </tr>
+    <tr>
+      <th>6428</th>
+      <td>2011-01-01</td>
+      <td>November</td>
+      <td>2011</td>
+      <td>Tocantins</td>
+      <td>NaN</td>
+    </tr>
+  </tbody>
+</table>
+<p>132 rows × 5 columns</p>
 </div>
 </div>
 
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Converting-List-to-Series">Converting List to Series<a class="anchor-link" href="#Converting-List-to-Series">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_list</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">44</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">75</span><span class="p">,</span><span class="mi">62</span><span class="p">,</span><span class="mi">67</span><span class="p">,</span><span class="mi">30</span><span class="p">]</span>
-
-<span class="n">my_series</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">my_list</span><span class="p">)</span>
-
-<span class="n">my_series</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[5]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0    10
-1    44
-2    30
-3    75
-4    62
-5    67
-6    30
-dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[6]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - my series all values:</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="o">.</span><span class="n">values</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - my series all indexs:</span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation with index 3 : &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="mi">3</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation with index 5 : &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1"> - Observation less than 50: </span><span class="se">\n</span><span class="s1"> &#39;</span><span class="p">,</span> <span class="n">my_series</span><span class="p">[</span><span class="n">my_series</span><span class="o">&lt;</span><span class="mi">50</span><span class="p">])</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>
- - my series all values:
-  [10 44 30 75 62 67 30]
-
- - my series all indexs:
-  RangeIndex(start=0, stop=7, step=1)
-
- - Observation with index 3 :  75
-
- - Observation with index 5 :  67
-
- - Observation less than 50: 
-  0    10
-1    44
-2    30
-6    30
-dtype: int64
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Checking-Type">Checking Type<a class="anchor-link" href="#Checking-Type">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[7]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_series</span><span class="p">))</span>
-
-<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Type is: &quot;</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="n">my_salary_series</span><span class="p">))</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt"></div>
-
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
-Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
-</pre>
-</div>
 </div>
 
 </div>
@@ -13381,284 +14116,31 @@ Type is:  &lt;class &#39;pandas.core.series.Series&#39;&gt;
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Statistical-Functions">Statistical Functions<a class="anchor-link" href="#Statistical-Functions">&#182;</a></h1>
-<pre><code>1.  count(): number of observations excluding missing values
-
-2.  sum(): sum of values
-
-3.  mean(): mean of Values
-
-4.  median(): median of Values
-
-5.  mode(): mode of values
-
-6.  std(): standard Deviation of the Values
-
-7.  min(): minimum Value
-
-8.  max(): maximum Value
-
-9.  value_counts():  number of unique observations</code></pre>
-
+<h1 id="Handling-Missing-Values">Handling Missing Values<a class="anchor-link" href="#Handling-Missing-Values">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Maximum">Finding Maximum<a class="anchor-link" href="#Finding-Maximum">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[14]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">max</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[14]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>75</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Minimun">Finding Minimun<a class="anchor-link" href="#Finding-Minimun">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[9]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">min</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[9]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Mean">Finding Mean<a class="anchor-link" href="#Finding-Mean">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[10]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[10]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>45.42857142857143</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Median">Finding Median<a class="anchor-link" href="#Finding-Median">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[11]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">median</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[11]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>44.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Mode">Finding Mode<a class="anchor-link" href="#Finding-Mode">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[12]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">mode</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[12]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0    30
-dtype: int64</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-Sum-of-observatios">Finding Sum of observatios<a class="anchor-link" href="#Finding-Sum-of-observatios">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[95]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
-</pre></div>
-
-    </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[95]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>318</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Finding-total-number-of-observations">Finding total number of observations<a class="anchor-link" href="#Finding-total-number-of-observations">&#182;</a></h2>
-<pre><code>- exculing Null Observations -&gt; missing values</code></pre>
+<h2 id="First-Way">First Way<a class="anchor-link" href="#First-Way">&#182;</a></h2>
+<pre><code>- Removing rows with missing values -&gt; df.dropna(axis=0) 
+- axis=0 -&gt; means rows
+- Reset index &amp; drop old index column -&gt; df.reset_index(drop=True)</code></pre>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[13]:</div>
+<div class="prompt input_prompt">In&nbsp;[229]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span> 
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13671,13 +14153,80 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[13]:</div>
+    <div class="prompt output_prompt">Out[229]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>7</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>date</th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>1998-01-01</td>
+      <td>January</td>
+      <td>1998</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1999-01-01</td>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2000-01-01</td>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2001-01-01</td>
+      <td>January</td>
+      <td>2001</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2002-01-01</td>
+      <td>January</td>
+      <td>2002</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13689,45 +14238,21 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Counting-the-number-of-unique-observations">Counting the number of unique observations<a class="anchor-link" href="#Counting-the-number-of-unique-observations">&#182;</a></h2>
+<h2 id="Second-Way">Second Way<a class="anchor-link" href="#Second-Way">&#182;</a></h2>
+<pre><code>- Filling null values with 0</code></pre>
+
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[96]:</div>
+<div class="prompt input_prompt">In&nbsp;[230]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">value_counts</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">df</span><span class="p">[</span><span class="s1">&#39;number_of_fires&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[96]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>30    2
-67    1
-62    1
-44    1
-75    1
-10    1
-dtype: int64</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
@@ -13735,16 +14260,27 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Finding-Unique-Values">Finding Unique Values<a class="anchor-link" href="#Finding-Unique-Values">&#182;</a></h1>
+<h1 id="Removing-columns">Removing columns<a class="anchor-link" href="#Removing-columns">&#182;</a></h1>
+<pre><code>- axis=1 -&gt; means columns</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dropping-a-Column">Dropping a Column<a class="anchor-link" href="#Dropping-a-Column">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[16]:</div>
+<div class="prompt input_prompt">In&nbsp;[199]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span> 
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13757,13 +14293,74 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[16]:</div>
+    <div class="prompt output_prompt">Out[199]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>array([10, 44, 30, 75, 62, 67])</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>January</td>
+      <td>1998</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>January</td>
+      <td>2001</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>January</td>
+      <td>2002</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13775,16 +14372,18 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Descriptive-Statistics">Descriptive Statistics<a class="anchor-link" href="#Descriptive-Statistics">&#182;</a></h1>
+<h2 id="Dropping-Multiple-Columns">Dropping Multiple Columns<a class="anchor-link" href="#Dropping-Multiple-Columns">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[15]:</div>
+<div class="prompt input_prompt">In&nbsp;[127]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s2">&quot;year&quot;</span><span class="p">,</span> <span class="s2">&quot;date&quot;</span><span class="p">],</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13797,21 +14396,68 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[15]:</div>
+    <div class="prompt output_prompt">Out[127]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>count     7.000000
-mean     45.428571
-std      23.621016
-min      10.000000
-25%      30.000000
-50%      44.000000
-75%      64.500000
-max      75.000000
-dtype: float64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Janeiro</td>
+      <td>Acre</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13823,16 +14469,29 @@ dtype: float64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sorting-my_series-(default:-ascending)">Sorting my_series (default: ascending)<a class="anchor-link" href="#Sorting-my_series-(default:-ascending)">&#182;</a></h1>
+<h1 id="Removing-Rows">Removing Rows<a class="anchor-link" href="#Removing-Rows">&#182;</a></h1>
+<pre><code>- Using the df.index function</code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Dropping-a-Row">Dropping a Row<a class="anchor-link" href="#Dropping-a-Row">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[97]:</div>
+<div class="prompt input_prompt">In&nbsp;[200]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+<span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13845,20 +14504,74 @@ dtype: float64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[97]:</div>
+    <div class="prompt output_prompt">Out[200]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>0    10
-2    30
-6    30
-1    44
-4    62
-5    67
-3    75
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>January</td>
+      <td>2001</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>January</td>
+      <td>2002</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>January</td>
+      <td>2003</td>
+      <td>Acre</td>
+      <td>10.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13870,16 +14583,18 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sorting-my_series-(descending)">Sorting my_series (descending)<a class="anchor-link" href="#Sorting-my_series-(descending)">&#182;</a></h1>
+<h2 id="Dropping-Multiple-Rows">Dropping Multiple Rows<a class="anchor-link" href="#Dropping-Multiple-Rows">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[98]:</div>
+<div class="prompt input_prompt">In&nbsp;[201]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">]])</span>
+
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13892,20 +14607,74 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[98]:</div>
+    <div class="prompt output_prompt">Out[201]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-6    30
-2    30
-0    10
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>January</td>
+      <td>2000</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>January</td>
+      <td>2003</td>
+      <td>Acre</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>January</td>
+      <td>2004</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>January</td>
+      <td>2005</td>
+      <td>Acre</td>
+      <td>12.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13917,29 +14686,18 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Save-Changes-(two-ways)">Save Changes (two ways)<a class="anchor-link" href="#Save-Changes-(two-ways)">&#182;</a></h1>
-<pre><code>- 1. my_series.sort_values(ascending=False, inplace=True)
-
-- 2. my_series = my_series.sort_values(ascending=False)</code></pre>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div><div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="First-way">First way<a class="anchor-link" href="#First-way">&#182;</a></h3>
+<h2 id="Dropping-a-range-of-rows">Dropping a range of rows<a class="anchor-link" href="#Dropping-a-range-of-rows">&#182;</a></h2>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[99]:</div>
+<div class="prompt input_prompt">In&nbsp;[202]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">]])</span>
 
-<span class="n">my_series</span>
+<span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
     </div>
@@ -13952,20 +14710,74 @@ dtype: int64</pre>
 
 <div class="output_area">
 
-    <div class="prompt output_prompt">Out[99]:</div>
+    <div class="prompt output_prompt">Out[202]:</div>
 
 
 
+<div class="output_html rendered_html output_subarea output_execute_result">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-6    30
-2    30
-0    10
-dtype: int64</pre>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>month</th>
+      <th>year</th>
+      <th>state</th>
+      <th>number_of_fires</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>January</td>
+      <td>1999</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>January</td>
+      <td>2003</td>
+      <td>Acre</td>
+      <td>10.0</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>January</td>
+      <td>2004</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>January</td>
+      <td>2006</td>
+      <td>Acre</td>
+      <td>4.0</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>January</td>
+      <td>2007</td>
+      <td>Acre</td>
+      <td>0.0</td>
+    </tr>
+  </tbody>
+</table>
+</div>
 </div>
 
 </div>
@@ -13977,48 +14789,19 @@ dtype: int64</pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Second-way">Second way<a class="anchor-link" href="#Second-way">&#182;</a></h3>
+<h1 id="Saving-to-new-csv-file">Saving to new csv file<a class="anchor-link" href="#Saving-to-new-csv-file">&#182;</a></h1>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[100]:</div>
+<div class="prompt input_prompt">In&nbsp;[231]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">my_series</span> <span class="o">=</span> <span class="n">my_series</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-
-<span class="n">my_series</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="s1">&#39;Amazon_Fires_editted.csv&#39;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-    <div class="prompt output_prompt">Out[100]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>3    75
-5    67
-4    62
-1    44
-2    30
-6    30
-0    10
-dtype: int64</pre>
-</div>
-
-</div>
-
 </div>
 </div>
 
