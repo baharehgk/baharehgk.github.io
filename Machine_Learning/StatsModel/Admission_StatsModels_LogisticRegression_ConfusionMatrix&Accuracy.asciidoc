@@ -1,0 +1,328 @@
+= Case Study (University Admission) :
+
+== StatsModels (Logistic Regression) - Confusion Matrix & Accuracy
+
+== Overview
+
+....
+- Importing the relevant libraries
+
+- Loading data 
+
+- Dummy Variables
+
+- Declaring the dependent and independent variables
+
+- Adding a Constant
+
+- Creating a Logit Regression 
+
+- Fitting the Model
+
+- Predictions
+
+- Actual Values
+
+- Confusion Matrix
+
+- Calculating the Accuracy
+
+- Creating Summary Table (Confusion Matrix)  
+
+- Confusion Matrix & Accuracy Function
+....
+
+= Importing the relevant libraries
+
+
++*In[1]:*+
+[source, ipython3]
+----
+import numpy as np
+import pandas as pd
+import statsmodels.api as sm
+import matplotlib.pyplot as plt
+import seaborn as sns
+sns.set()
+----
+
+= Loading data
+
+
++*In[2]:*+
+[source, ipython3]
+----
+url = 'https://datascienceschools.github.io/Machine_Learning/StatsModel/admission.csv'
+
+df = pd.read_csv(url)
+
+df.head()
+----
+
+
++*Out[2]:*+
+----
+[cols=",,,",options="header",]
+|=======================
+| |SAT |Admitted |Gender
+|0 |1363 |No |Male
+|1 |1792 |Yes |Female
+|2 |1954 |Yes |Female
+|3 |1653 |No |Male
+|4 |1593 |No |Male
+|=======================
+----
+
+= Dummy Variables
+
+....
+- Replace all No entries with 0, and all Yes entries with 1
+....
+
+
++*In[3]:*+
+[source, ipython3]
+----
+data = df.copy()
+
+data['Admitted'] = data['Admitted'].map({'Yes': 1, 'No': 0})
+data['Gender'] = data['Gender'].map({'Female': 1, 'Male': 0})
+
+data.head()
+----
+
+
++*Out[3]:*+
+----
+[cols=",,,",options="header",]
+|=======================
+| |SAT |Admitted |Gender
+|0 |1363 |0 |0
+|1 |1792 |1 |1
+|2 |1954 |1 |1
+|3 |1653 |0 |0
+|4 |1593 |0 |0
+|=======================
+----
+
+= Declaring the dependent and independent variables
+
+
++*In[4]:*+
+[source, ipython3]
+----
+y = data['Admitted']
+
+x = data[['SAT','Gender']]
+----
+
+= Adding a Constant
+
+
++*In[5]:*+
+[source, ipython3]
+----
+x_constant = sm.add_constant(x)
+----
+
+= Creating a Logit Regression
+
+
++*In[6]:*+
+[source, ipython3]
+----
+model = sm.Logit(y,x_constant)
+----
+
+= Fitting the Model
+
+
++*In[7]:*+
+[source, ipython3]
+----
+results = model.fit()
+----
+
+
++*Out[7]:*+
+----
+Optimization terminated successfully.
+         Current function value: 0.120117
+         Iterations 10
+----
+
+= Predictions
+
+....
+- Changing the formatting of np arrays:
+
+    np.set_printoptions(formatter={'float': lambda x: "{0:0.2f}".format(x)})
+    
+- Default formatting: 
+
+    np.set_printoptions(formatter=None)
+    
+- Results are the probability of getting admitted
+....
+
+
++*In[8]:*+
+[source, ipython3]
+----
+np.set_printoptions(formatter={'float': lambda x: "{0:0.2f}".format(x)})
+
+results.predict()
+----
+
+
++*Out[8]:*+
+----array([0.00, 1.00, 1.00, 0.23, 0.02, 0.99, 1.00, 1.00, 1.00, 0.01, 1.00,
+       1.00, 0.76, 0.00, 0.60, 1.00, 0.11, 0.12, 0.51, 1.00, 1.00, 1.00,
+       0.00, 0.01, 0.97, 1.00, 0.48, 0.99, 1.00, 0.99, 0.00, 0.83, 0.25,
+       1.00, 1.00, 1.00, 0.31, 1.00, 0.23, 0.00, 0.02, 0.45, 1.00, 0.00,
+       0.99, 0.00, 0.99, 0.00, 0.00, 0.01, 0.00, 1.00, 0.92, 0.02, 1.00,
+       0.00, 0.37, 0.98, 0.12, 1.00, 0.00, 0.78, 1.00, 1.00, 0.98, 0.00,
+       0.00, 0.00, 1.00, 0.00, 0.78, 0.12, 0.00, 0.99, 1.00, 1.00, 0.00,
+       0.30, 1.00, 1.00, 0.00, 1.00, 1.00, 0.85, 1.00, 1.00, 0.00, 1.00,
+       1.00, 0.89, 0.83, 0.00, 0.98, 0.97, 0.00, 1.00, 1.00, 0.03, 0.99,
+       0.96, 1.00, 0.00, 1.00, 0.01, 0.01, 1.00, 1.00, 1.00, 0.00, 0.00,
+       0.02, 0.33, 0.00, 1.00, 0.09, 0.00, 0.97, 0.00, 0.75, 1.00, 1.00,
+       0.01, 0.01, 0.00, 1.00, 0.00, 0.99, 0.57, 0.54, 0.87, 0.83, 0.00,
+       1.00, 0.00, 0.00, 0.00, 1.00, 0.04, 0.00, 0.01, 1.00, 0.99, 0.52,
+       1.00, 1.00, 0.05, 0.00, 0.00, 0.00, 0.68, 1.00, 1.00, 1.00, 1.00,
+       1.00, 0.00, 1.00, 1.00, 0.04, 1.00, 0.02, 1.00, 0.99, 0.97, 0.94,
+       0.01, 0.00, 0.00])----
+
+= Actual Values
+
+
++*In[9]:*+
+[source, ipython3]
+----
+np.array(data['Admitted'])
+----
+
+
++*Out[9]:*+
+----array([0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1,
+       0, 0, 1, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 0, 1, 0, 0, 0, 1, 1, 0,
+       1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0, 0, 1, 0, 1, 0, 1, 1, 1, 1, 0,
+       0, 0, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 0, 1, 1, 0, 1,
+       1, 1, 0, 0, 1, 1, 0, 1, 1, 0, 1, 1, 1, 0, 1, 0, 0, 1, 1, 1, 0, 0,
+       0, 0, 0, 1, 0, 0, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 1, 0, 1, 1, 1, 0,
+       1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, 1, 1, 0, 0, 0, 0, 1, 1, 1, 1, 1,
+       1, 0, 1, 1, 0, 1, 0, 1, 1, 1, 1, 0, 0, 0])----
+
+= Confusion Matrix
+
+
++*In[10]:*+
+[source, ipython3]
+----
+cm = results.pred_table()
+
+cm
+----
+
+
++*Out[10]:*+
+----array([[69.00, 5.00],
+       [4.00, 90.00]])----
+
+= Calculating the Accuracy
+
+
++*In[11]:*+
+[source, ipython3]
+----
+accuracy = (cm[0,0]+cm[1,1])/cm.sum()
+
+print("Accuracy is: ", accuracy)
+----
+
+
++*Out[11]:*+
+----
+Accuracy is:  0.9464285714285714
+----
+
+= Creating Summary Table (Confusion Matrix)
+
+....
+- for 69 observations the model predicted 0 while the actual value was 0 
+
+- for 90 observations the model predicted 1 while the actual value was 1
+
+- for 4 observations the model predicted 0 while the actual value was 1
+
+- for 5 observations the model predicted 1 while the actual value was 1
+
+- The accuracy of the model is :  159/168 = 94.6 %
+
+    -> 69+90 = 159 of the cases the model was correct
+
+    -> 5+4 = 9 of the cases the model was incorrect
+
+    -> Total cases: 168
+....
+
+
++*In[12]:*+
+[source, ipython3]
+----
+confusin_matrix = pd.DataFrame(results.pred_table())
+
+confusin_matrix.columns = ['Predicted 0','Predicted 1']
+
+confusin_matrix = confusin_matrix.rename(index={0: 'Actual 0',1:'Actual 1'})
+
+confusin_matrix
+----
+
+
++*Out[12]:*+
+----
+[cols=",,",options="header",]
+|==========================
+| |Predicted 0 |Predicted 1
+|Actual 0 |69.0 |5.0
+|Actual 1 |4.0 |90.0
+|==========================
+----
+
+= Confusion Matrix & Accuracy Function
+
+
++*In[13]:*+
+[source, ipython3]
+----
+def confusion_matrix(data,actual_values,model):
+        
+        pred_values = model.predict(data)
+        
+        bins=np.array([0,0.5,1])
+       
+        cm = np.histogram2d(actual_values, pred_values, bins=bins)[0]
+        
+        accuracy = (cm[0,0]+cm[1,1])/cm.sum()
+           
+        print("Confusion Matrix is:\n\n ", cm, "\n\n Accuracy is: ", accuracy)
+----
+
+
++*In[14]:*+
+[source, ipython3]
+----
+confusion_matrix(x_constant,y,results)
+----
+
+
++*Out[14]:*+
+----
+Confusion Matrix is:
+
+  [[69.00 5.00]
+ [4.00 90.00]] 
+
+ Accuracy is:  0.9464285714285714
+----
