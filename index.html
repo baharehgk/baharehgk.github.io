@@ -5,7 +5,6 @@
 
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
 <body>
 
@@ -32,7 +31,7 @@
 .sidenav a, .dropdown-btn {
   padding: 6px 8px 6px 16px;
   text-decoration: none;
-  font-size: 10px;
+  font-size: 12px;
   color: #2B7A78;
   display: block;
   border: none;
@@ -51,7 +50,7 @@
 /* Main content */
 .main {
   margin-left: 200px; /* Same as the width of the sidenav */
-  font-size: 30px; /* Increased text to enable scrolling */
+  font-size: 12px; /* Increased text to enable scrolling */
   padding: 0px 80px;
 }
 
@@ -63,10 +62,11 @@
 
 /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
 .dropdown-container {
+  font-family: "Lato", sans-serif;
   display: none;
   background-color: #262626;
   padding-left: 8px;
-  font-size: 18px;
+  font-size: 12px;
 }
 
 /* Optional: Style the caret down icon */
@@ -78,7 +78,7 @@
 /* Some media queries for responsiveness */
 @media screen and (max-height: 450px) {
   .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 22px;}
+  .sidenav a {font-size: 12px;}
 }
 </style>
 </head>
@@ -400,18 +400,27 @@ display: block;
              
       </div>
 </div>
-<button class="dropdown-btn"> Others not completed
+
+<button class="dropdown-btn"> Regression
         <i class="fa fa-caret-down"></i>
     </button>
 <div class="dropdown-container">
 
-        <button class="dropdown-btn"> Salary 
+        <button class="dropdown-btn"> Salary & Experience
         <i class="fa fa-caret-down"></i>
     </button>
       <div class="dropdown-container">
-         <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Tools_Sklearn_DataPreprocessing.html">Salary Data Preprocessing Tools</a>
-         <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Salary/Salary_Sklearn_SimpleLinearRegression.html">Salary Simple Linear Regression</a>
+         <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Tools_Sklearn_DataPreprocessing.html">Salary & Experience Data Preprocessing Tools</a>
+         <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Salary/Salary_Sklearn_SimpleLinearRegression.html">Salary & Experience Simple Linear Regression</a>
       
+  </div>
+ <button class="dropdown-btn"> Salary & Position
+        <i class="fa fa-caret-down"></i>
+    </button>
+      <div class="dropdown-container">
+         <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_SimpleLinearRegression.html">Salary & Position Simple Linear Regression</a>
+         
+     <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_PolynomialLinearRegression.html">Salary & Position Polynomial Linear Regression</a>
  
           
       </div>
