@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html>
+   <head>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <style>
+   <body>
+   {
+   font-family: "Lato", sans-serif;
+   }
+   /* Fixed sidenav, full height */
+   .sidenav {
+   height: 100%;
+   width: 400px;
+   position: fixed;
+   z-index: 1;
+   top: 0;
+   left: 0;
+   background-color: #3AAFA9;
+   overflow-x: hidden;
+   padding-top: 30px;
+   }
+   /* Style the sidenav links and the dropdown button */
+   .sidenav a, .dropdown-btn {
+   padding: 6px 8px 6px 16px;
+   text-decoration: none;
+   font-size: 12px;
+   color: #2B7A78;
+   display: block;
+   border: none;
+   background: none;
+   width: 100%;
+   text-align: left;
+   cursor: pointer;
+   outline: none;
+   }
+   /* On mouse-over */
+   .sidenav a:hover, .dropdown-btn:hover {
+   color: #DEF2F1;
+   }
+   /* Main content */
+   .main {
+   margin-left: 200px; /* Same as the width of the sidenav */
+   font-size: 12px; /* Increased text to enable scrolling */
+   padding: 0px 80px;
+   }
+   /* Add an active class to the active dropdown button */
+   .active {
+   background-color:pink;
+   color: white;
+   }
+   /* Dropdown container (hidden by default). Optional: add a lighter background color and some left padding to change the design of the dropdown content */
+   .dropdown-container {
+   font-family: "Lato", sans-serif;
+   display: none;
+   background-color: #262626;
+   padding-left: 8px;
+   font-size: 12px;
+   }
+   /* Optional: Style the caret down icon */
+   .fa-caret-down {
+   float: right;
+   padding-right: 8px;
+   }
+   /* Some media queries for responsiveness */
+   @media screen and (max-height: 450px) {
+   .sidenav {padding-top: 15px;}
+   .sidenav a {font-size: 12px;}
+   }
+   </style>
+   </head>
+   <nav>
+   <ul>
+   <li><a href="#">Navigation</a></li>
+   <li><a href="#">Menu</a></li>
+   <li><a href="#">Links</a></li>
+   </ul>
+   </nav>
+   <div class="sidenav">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <style>
+   img {
+   border-radius: 50%;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+   }
+   </style>
+   </head>
+   <body>
+   <img src="https://datascienceschools.github.io/dsslogo.jpg" alt="Trulli" width="200" height="200">
+   <div class="main">
+   </div>
+   <button class="dropdown-btn">Ubuntu 19.10
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/ubuntuversion.html">Ubuntu version</a>
+   <a href="https://DataScienceSchools.github.io/rar.html">Ubuntu Extract RAR File</a>
+   <a href="https://DataScienceSchools.github.io/hard.html">Ubuntu External USB Hard Disk</a>
+   </div>
+    <button class="dropdown-btn">SQL Server
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+    <a href="https://DataScienceSchools.github.io/SQL_Server/Procedure_Template/Procedure_WRK&DRV&QA_Template.html">Procedure Template</a>
+   <a href="https://DataScienceSchools.github.io/SQL_Server/FakeNamesCanada/Procedure_BLD_WRK_FakeNamesCanada .html
+">Procedure BLD_WRK_FakeNamesCanada</a>
+ 
+   </div>
+   <button class="dropdown-btn">Python 3 
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/install.html">Python Installation </a>
+   <a href="https://DataScienceSchools.github.io/print.html">Python print</a>
+   <a href="https://DataScienceSchools.github.io/comment.html">Python Comments</a>
+   <a href="https://DataScienceSchools.github.io/arithmetic.html">Python Arithmetic Operators</a>
+   <a href="https://DataScienceSchools.github.io/variable.html">Python Variables</a>
+   <a href="https://DataScienceSchools.github.io/tmethod.html">Python Datatypes</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_Lists.html">Python Lists</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_Tuples.html">Python Tuples</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_Dictionaries.html">Python Dictionaries</a>
+   <a href="https://DataScienceSchools.github.io/ulmethod.html">Python String Methods</a>
+   <a href="https://DataScienceSchools.github.io/rmethod.html">Python Replace Method</a>
+   <a href="https://DataScienceSchools.github.io/function.html">Python Functions</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_Try&Except.html">Python Try/Except</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_ReadingFile.html">Python File Read</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_AppendingtoFile.html">Python File Append</a>
+   <a href="https://DataScienceSchools.github.io/Python/Python_WritingtoFile.html">Python File Write</a>
+   </div>
+   <button class="dropdown-btn">Anaconda
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/installanaconda.html">Anaconda Install </a>
+   <a href="https://DataScienceSchools.github.io/uninstallanaconda.html">Anaconda Uninstall </a>
+   <a href="https://DataScienceSchools.github.io/condanotfound.html">Anaconda Conda not found</a>
+   </div>
+   <button class="dropdown-btn">Jupyter Notebook 
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/openjn.html">Jupyter Open Notebook</a>
+   <a href="https://DataScienceSchools.github.io/importingfile.html">Jupyter Import file</a>
+   <a href="https://DataScienceSchools.github.io/html2ipynb.html">Jupyter HTML to ipynb</a>
+   </div>
+   <button class="dropdown-btn">NumPy
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/numpy.html">NumPy Installation</a>
+   <a href="https://DataScienceSchools.github.io/nversion.html">NumPy Version</a>
+   <a href="https://DataScienceSchools.github.io/array.html">NumPy Arrays</a>
+   <a href="https://DataScienceSchools.github.io/indexn.html">NumPy Index of Array</a>
+   <a href="https://DataScienceSchools.github.io/Numpy_crosstab.html">Numpy Crosstab</a>
+   </div>
+   <button class="dropdown-btn">Pandas
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Pandas_Packages.html">Pandas Installing Packages</a>
+   <a href="https://DataScienceSchools.github.io/Pandas_Series.html">Pandas Series</a>
+   <a href="https://DataScienceSchools.github.io/Pandas_DataFrames.html">Pandas DataFrame</a>
+   <a href="https://DataScienceSchools.github.io/Pandas_DataCleaning.html">Pandas Data Cleaning</a>
+   <a href="https://DataScienceSchools.github.io/Pandas">Series and DataFrame</a>
+   <a href="https://DataScienceSchools.github.io/combining.html">Combining DataFrames</a>
+   <a href="https://DataScienceSchools.github.io/drop.html">Deleting rows and columns with missing values</a>
+   <a href="https://DataScienceSchools.github.io/merging.html">Merging/Joining DataFrames</a>
+   <a href="https://DataScienceSchools.github.io/replace.html">Replacing values in DataFrames</a>
+   <a href="https://DataScienceSchools.github.io/map.html">Creating new columns with Mapping function</a>
+   <a href="https://DataScienceSchools.github.io/Pandas_addcolumn.html">Creating new columns</a>
+   <a href="https://DataScienceSchools.github.io/ordering.html">Ordering columns</a>
+   <a href="https://DataScienceSchools.github.io/dropping.html">Dropping rows and columns</a>
+   <a href="https://DataScienceSchools.github.io/sstatistics.html">Summary Statistics</a>
+   </div>
+  
+<button class="dropdown-btn">Hadoop
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/MapReduce/MapReduce_RatingsBreakdown.html">MapReduce - Ratings Breakdown</a>
+   <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/MapReduce/MapReduce_RatingsBreakdown.py">MapReduce - Ratings Breakdown py </a>
+
+ <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/MapReduce/MapReduce_TopMovies.html">MapReduce - Top Movies</a>
+   <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/MapReduce/MapReduce_TopMovies.py">MapReduce - Top Movies py </a>
+  <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/PIG/Pig_The_Oldest_FiveStar_Movie.html">PIG - The Oldest Five Star Movie </a>  
+ <a href="https://DataScienceSchools.github.io/DataScienceSchools.github.io/Hadoop/PIG/Pig_Movie_AverageRating_LessthanTwo.html">PIG - Movie with Average Rating Less than Two </a>
+
+      
+      
+      </div>
+
+ <button class="dropdown-btn">IBM Watson Studio
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/linkingwg.html">Linking Github to Watson Studio</a>
+   </div>
+   <button class="dropdown-btn">Data Visualization
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Matplotlib_PieChart.html">Data Visualization Pie Chart</a>
+   </div>
+
+
+ <button class="dropdown-btn">Statistics
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io//Statistics/Normal_Distribution_Random_Observations.html">Normal Distribution (Random Observations)</a>
+   <a href="https://DataScienceSchools.github.io//Statistics/Large_Numbers_Law.html">The Law of Large Numbers</a>
+
+     </div>
+
+<button class="dropdown-btn">Deep Learning
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container"> 
+   <button class="dropdown-btn">  TensorFlow
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/TensorFlow/TensorFlow_Installation.html">TensorFlow Installation</a>
+   </div>
+   <button class="dropdown-btn"> Artificial Neural Network
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Deep_Learning/ArtificialNeuralNetwork/BankCustomerChurn_ArtificialNeuralNetwork_BinaryClassification.html">ANN Binary Classification</a>
+   <a href="https://DataScienceSchools.github.io/Deep_Learning/ArtificialNeuralNetwork/PowerPlant_ArtificialNeuralNetwork_Regression.html">ANN Regression</a>
+   </div>
+   </div>
+
+
+
+
+  <button class="dropdown-btn">Natural Language Processing
+  <i class="fa fa-caret-down"></i>
+  </button>
+   <div class="dropdown-container"> 
+   <button class="dropdown-btn"> Bag of Words
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Natural_Language_Processing/RestaurantReviews_NaturalLanguageProcessing.html">Restaurant Reviews</a>
+   </div>
+  
+   </div>
+  
+
+ 
+   <button class="dropdown-btn">Case Studies
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Car Price
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Car-Price_Preprocessing_Outliers.html">Car Price Outliers</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Real Estate
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/RealEstate_SKLearn_SimpleLinearRegression.html"> RE SKLearn Simple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/RealEstate_statsmodels_SimpleLinearRegression.html"> RE statsmodels Simple Linear Regression</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Autos
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/autoimportfile.html">Autos Importing File</a>
+   <a href="https://DataScienceSchools.github.io/autoexport.html">Autos Exporting Data</a>
+   <a href="https://DataScienceSchools.github.io/autodatatype.html">Autos DataTypes</a>
+   <a href="https://DataScienceSchools.github.io/autoconverting.html">Autos Converting DataTypes</a>
+   <a href="https://DataScienceSchools.github.io/autocheckmissingvalues.html">Autos Checking Missing Values</a>
+   <a href="https://DataScienceSchools.github.io/automissingvalue.html">Autos dropping</a>
+   <a href="https://DataScienceSchools.github.io/autohandlingmissingvalue.html">Autos Handling Missing Values</a>
+   <a href="https://DataScienceSchools.github.io/autocat2numeric.html">Auto categorical to quantitative</a>
+   <a href="https://DataScienceSchools.github.io/autosummarystatistics.html">Auto Summary Statistics</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Human Resource Retention
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/HR_importing&merging.html"> HR Importing & Merging DataFrames </a>
+   <a href="https://DataScienceSchools.github.io/HR_missingvalues.html">HR Handling Missing Values</a>
+   <a href="https://DataScienceSchools.github.io/HR_pivot&groupby.html">HR Pivot & GroupBy</a>
+   <a href="https://DataScienceSchools.github.io/HR_CA_performance.html">HR Classification Algorithms Preformance</a>
+   <a href="https://DataScienceSchools.github.io/HR_fearture_importance.html">HR Random Forest Feature importance</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Amazon
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/amazon_Data_Cleaning_Summary.html">Amazon Data Cleaning Summary</a>
+   <a href="https://DataScienceSchools.github.io/amazon_rename_column.html">Amazon Renaming Columns</a>
+   <a href="https://DataScienceSchools.github.io/amazon_reorder_column.html">Amazon Re-arranging Column</a>
+   <a href="https://DataScienceSchools.github.io/amazon_numeric_digit.html">Amazon Columns Datatype</a>
+   <a href="https://DataScienceSchools.github.io/amazon_remove_text_column.html">Amazon Removing Text</a>
+   <a href="https://DataScienceSchools.github.io/amazon_missing_value.html">Amazon Missing Data</a>
+   <a href="https://DataScienceSchools.github.io/amazon_convert_datatype.html">Amazon Converting DataTypes</a>
+   <a href="https://DataScienceSchools.github.io/amazon_replace_column_values.html">Amazon Replacing Values</a>
+   <a href="https://DataScienceSchools.github.io/amazon_convert_value.html">Amazon Uppercase & Lowercase </a>
+   <a href="https://DataScienceSchools.github.io/amazon_drop_column.html">Amazon Removing Columns</a>
+   <a href="https://DataScienceSchools.github.io/amazon_drop_row.html">Amazon Removing Rows</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Wine Quality
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/wineimport.html">Wine Quality Importing Files</a>
+   <a href="https://DataScienceSchools.github.io/wineaddcolumn.html">Wine Quality Adding a new column</a>
+   <a href="https://DataScienceSchools.github.io/wineappendingdata.html">Wine Quality Appending Data</a>
+   <a href="https://DataScienceSchools.github.io/wineexport.html">Wine Quality Exporting Data</a>
+   <a href="https://DataScienceSchools.github.io/winerevisename.html">Wine Quality Revising a Column Name</a> 
+   <a href="https://DataScienceSchools.github.io/winerenamecolumnname.html">Wine Quality Renaming a Column Name</a> 
+   <a href="https://DataScienceSchools.github.io/winesummarystatistics.html">Wine Quality Summary Statistics</a>
+   <a href="https://DataScienceSchools.github.io/winemissingvalues.html">Wine Quality Checking Missing Values</a>
+   <a href="https://DataScienceSchools.github.io/wineduplicate.html">Wine Quality Checking Duplicate Values</a>
+   <a href="https://DataScienceSchools.github.io/.html">Wine Quality Hitogram</a>
+   <a href="https://DataScienceSchools.github.io/winegroupingdata.html">Wine Quality Grouping Data</a>
+   <a href="https://DataScienceSchools.github.io/winequery.html">Wine Quality Query</a>
+   </div>
+   <!-- End of Sub menu -->
+   </div>
+
+   <button class="dropdown-btn">Machine Learning (Supervised Learning)
+   <i class="fa fa-caret-down"></i>
+   </button>
+ <!-- Sub menu -->
+
+   <div class="dropdown-container"> 
+   <button class="dropdown-btn">  XGBoost Regression
+   <i class="fa fa-caret-down"></i>
+   </button>
+    <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/XGBoost/PowerPlant_XGBoost_Regression.html">Breast Cancer Wisconsin XGBoost Regression</a>
+   </div>
+   <button class="dropdown-btn"> XGBoost Classification
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/XGBoost/BreastCancerWisconsin_XGBoost_Classification.html">Breast Cancer Wisconsin XGBoost Classification</a>
+   </div>
+
+
+   <!-- End of Sub menu -->
+
+
+ <!-- Sub menu -->
+
+ 
+   <button class="dropdown-btn">  CatBoost Regression
+   <i class="fa fa-caret-down"></i>
+   </button>
+    <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CatBoost/PowerPlant_CatBoost_Regression.html">Breast Cancer Wisconsin CatBoost Regression</a>
+   </div>
+   <button class="dropdown-btn"> CatBoost Classification
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CatBoost/BreastCancerWisconsin_CatBoost_Classification.html">Breast Cancer Wisconsin CatBoost Classification</a>
+   </div>
+
+
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Scikit Learn Library
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Classification Models Performance
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Breast Cancer
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_LogisticRegression.html">Breast Cancer Wisconsin Logistic Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_KNearestNeighbors.html">Breast Cancer Wisconsin K-Nearest Neighbors</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_SupportVectorMachine.html">Breast Cancer Wisconsin Support Vector Machine</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_KernelSVM.html">Breast Cancer Wisconsin Kernel SVM</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_NaiveBayes.html">Breast Cancer Wisconsin NaiveBayes</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_DecisionTreeClassification.html">Breast Cancer Wisconsin Decision Tree Classification</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Classification/BreastCancerWisconsin/BreastCancerWisconsin_RandomForestClassification.html">Breast Cancer Wisconsin Random Forest Classification</a>
+   </div>
+   </div>
+   <button class="dropdown-btn"> Regression Models Performance
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Power Plant
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_MultipleLinearRegression.html">PowerPlant Multiple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_PolynomialLinearRegression.html">PowerPlant Polynomial Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_SupportVectorRegression.html">PowerPlant Support Vector Regression </a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_DecisionTreeRegression.html">PowerPlant Decision Tree Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_RandomForestRegression.html">PowerPlant Random Forest Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Regression/PowerPlant/PowerPlant_EvaluatingRegressionModelsPerformance.html">PowerPlant Evaluating Regression Models Performance</a>
+   </div>
+   </div>
+   </div>
+   <button class="dropdown-btn"> Regression Intuition
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Data Pre-processing Tools
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Tools_Sklearn_DataPreprocessing.html">Data Preprocessing Tools</a>
+  
+      </div>
+      
+      
+      
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Salary & Experience
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Tools_Sklearn_DataPreprocessing.html">Salary & Experience Data Preprocessing Tools</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Salary/Salary_Sklearn_SimpleLinearRegression.html">Salary & Experience Simple Linear Regression</a>
+   </div>
+   <button class="dropdown-btn"> Salary & Position
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_SimpleLinearRegression.html">Salary & Position Simple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_PolynomialLinearRegression.html">Salary & Position Polynomial Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_SupportVectorRegression.html">Salary & Position Support Vector Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_DecisionTreeRegression.html">Salary & Position Decision Tree Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Regression/SalaryPosition_Sklearn_RandomForestRegression.html">Salary & Position Random Forest Regression</a>
+   </div>
+   <button class="dropdown-btn"> Startups
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/Case_Study/Startups/StartupProfit_Sklearn_MultipleLinearRegression.html"> Sklearn Startsup Multiple Linear Regression</a>
+   </div>
+   <button class="dropdown-btn"> Real State
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/RealEstate_Sklearn_SimpleLinearRegression.html"> Simple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/RealEstate_Sklearn_MultipleLinearRegression.html"> Multiple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/RealEstate_Sklearn_MultipleLinearRegression_AdjustedRSquared.html"> Adjusted R-Squared</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Sklearn/RealEstate_Sklearn_MultipleLinearRegression_Pvalue"> F-Regression Pvalue</a>
+   </div> 
+   <button class="dropdown-btn"> Car Price
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Car-Price_Preprocessing_Outliers.html">Car Price Outliers</a>
+   </div>
+   </div>
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> StatsModels Library
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/StatsModel/RealEstate_StatsModels_SimpleLinearRegression.html"> StatsModels Simple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/StatsModel/RealEstate_StatsModels_MultipleLinearRegression.html"> StatsModels Multiple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/StatsModel/Admission_StatsModels_LogisticRegression_Curve.html"> StatsModels Logistic Regression Curve</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/StatsModel/Admission_StatsModels_LogisticRegression_LogitRegressionResults.html">StatsModels Logistic Regression Logit Regression Results </a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/StatsModel/Admission_StatsModels_LogisticRegression_ConfusionMatrix&Accuracy.html">StatsModels Logistic Regression Confusion Matrix & Accuracy</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Machine Learning Intuition
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/ML_SimpleLinearRegression.html">ML Simple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/ML_logistic_regression.html">ML Logistic Regression</a>
+   <a href="https://DataScienceSchools.github.io/ML_LR_decision_boundary.html">ML Logistic Regression Decision Boundary</a> 
+   <a href="https://DataScienceSchools.github.io/ML_LR_comparing_performance.html">ML Classification Algorithms Perfomance</a>
+   <a href="https://DataScienceSchools.github.io/ML_data_normalization.html">ML Data Normalization</a>
+   </div>
+   <!-- End of Sub menu -->
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Machine Learning Linear Regression-Case Study
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CaseStudy/CarPrice_Preprocessing_Outliers.html">CarPrice Preprocessing Outliers.html</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CaseStudy/CarPrice_OLSAssumptions.html">CarPrice OLS Assumptions</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CaseStudy/CarPrice_DummyVariables.html">CarPrice DummyVariables</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CaseStudy/CarPrice_LinearRegression.html">CarPrice LinearRegression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/CaseStudy/CarPrice_Multicollinearity_DummyVariables.html">CarPrice Multicollinearity Dummy Variables</a>
+   </div>
+   <!-- End of Sub menu -->
+   </div>
+   <button class="dropdown-btn"> Supervised Learning Models Template
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <!-- Sub menu -->
+   <button class="dropdown-btn">Regression
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <!-- Subsub menu -->
+   <button class="dropdown-btn">ipynb
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_MultipleLinearRegression_Template.ipynb"> Multiple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_PolynomialLinearRegression_Template.ipynb"> Polynomial Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_SupportVectorRegression_Template.ipynb">Support Vector Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_DecisionTree_Template.ipynb">Decision Tree Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_RandomForest_Template.ipynb">Random Forest Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/ipynb/Regression_XGBoost_Template.ipynb">XGBoost Regression</a>
+   
+
+
+</div>
+   <!-- End of Subsub menu -->
+   <!-- Subsub menu -->
+   <button class="dropdown-btn">py
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_MultipleLinearRegression_Template.py"> Multiple Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_PolynomialLinearRegression_Template.py"> Polynomial Linear Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_SupportVectorRegression_Template.py">Support Vector Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_DecisionTree_Template.py">Decision Tree Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_RandomForest_Template.py">Random Forest Regression</a>
+  <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Regression/py/Regression_XGBoost_Template.py">XGBoost Regression</a>
+   </div>
+   <!-- End of Subsub menu -->
+   </div>
+   <!-- End of Sub menu -->  
+   <!-- Sub menu -->
+   <button class="dropdown-btn">Classification
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <!-- Subsub menu -->
+   <button class="dropdown-btn">ipynb
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_LogisticRegression_Template.ipynb">Logistic Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_KNearestNeighbors_Template.ipynb">K-Nearest Neighbors</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_SupportVectorMachine_Template.ipynb">Support Vector Machine</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_KernelSVM_Template.ipynb">Kernel SVM</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_NaiveBayes_Template.ipynb">NaiveBayes</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_DecisionTreeClassification_Template.ipynb">Decision Tree Classification</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_RandomForestClassification_Template.ipynb">Random Forest Classification</a>
+  <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/ipynb/Classification_XGBoost_Template.ipynb">XGBoost Classification</a>
+   </div>
+   <!-- End of Subsub menu -->
+   <!-- Subsub menu -->
+   <button class="dropdown-btn">py
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_LogisticRegression_Template.py">Logistic Regression</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_KNearestNeighbors_Template.py">K-Nearest Neighbors</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_SupportVectorMachine_Template.py">Support Vector Machine</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_KernelSVM_Template.py">Kernel SVM</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_NaiveBayes_Template.py">NaiveBayes</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_DecisionTreeClassification_Template.py">Decision Tree Classification</a>
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_RandomForestClassification_Template.py">Random Forest Classification</a>
+ <a href="https://DataScienceSchools.github.io/Machine_Learning/Models Template/Classification/py/Classification_XGBoost_Template.py">XGBoost Classification</a>  
+
+ </div>
+   <!-- End of Subsub menu -->
+   </div>
+   <!-- End of Sub menu -->  
+   </div>
+
+
+   <button class="dropdown-btn">Machine Learning (Unsupervised Learning)
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <!-- Sub menu -->
+   <button class="dropdown-btn"> Association Rule Learning 
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <button class="dropdown-btn"> Apriori
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Unsupervised_Learning/Association_Rule/MarketBasketOptimisation_AssociationRule_Apriori.html">Market Basket Optimisation Apriori</a>
+   </div>
+   <button class="dropdown-btn"> Eclat
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/Machine_Learning/Unsupervised_Learning/Association_Rule/MarketBasketOptimisation_AssociationRule_Eclat.html">Market Basket Optimisation Eclat</a>
+   </div>
+   </div>
+   </div>
+   <button class="dropdown-btn">  About Me
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="https://DataScienceSchools.github.io/aboutme/Aboutme.html">About Me</a>
+   </div> 
+   <button class="dropdown-btn">To be Continued
+   <i class="fa fa-caret-down"></i>
+   </button>
+   <div class="dropdown-container">
+   <a href="">To be Continued</a>
+   </div>
+   </div>
+   <script>
+      var dropdown = document.getElementsByClassName("dropdown-btn");
+      var i;
+      
+      for (i = 0; i < dropdown.length; i++) {
+      dropdown[i].addEventListener("click", function() {
+      this.classList.toggle("active");
+      var dropdownContent = this.nextElementSibling;
+      if (dropdownContent.style.display === "block") {
+      dropdownContent.style.display = "none";
+      } else {
+      dropdownContent.style.display = "block";
+      }
+      });
+      }
+   </script>
+   </body>
+</html>
