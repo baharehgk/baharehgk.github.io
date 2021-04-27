@@ -1,4 +1,4 @@
-# DataScienceSchools.github.io
+# About DataScienceSchools
 
   Author: Bahareh Ghanbari Kondori 
   Master of Banking & Finance department
