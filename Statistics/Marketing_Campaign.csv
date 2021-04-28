@@ -1,4 +1,4 @@
-MarketID,MarketSize,LocationID,AgeOfStore,Promotion,week,SalesInThousands
+MarketID,MarketSize,LocationID,AgeOfStore,Promotion,Week,Sales
 1,Medium,1,4,3,1,33.73
 1,Medium,1,4,3,2,35.67
 1,Medium,1,4,3,3,29.03
